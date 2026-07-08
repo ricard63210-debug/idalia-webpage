@@ -1561,6 +1561,987 @@
         left: 100%;
       }
     }
+
+    /* ====================================================
+       BUYERS GUIDE SECTION & FLIPBOOK STYLES
+       ==================================================== */
+    #buyers-guide {
+      background-color: #4A5568;
+      padding: 60px 0;
+      color: #FFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .buyers-guide-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem;
+    }
+
+    .guide-title-wrap {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .guide-title-wrap h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #FFF;
+      margin-bottom: 0.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .guide-title-wrap h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 2px;
+      background-color: #B8960C;
+    }
+
+    /* Outer Wrapper for Hardcover */
+    .book-cover-wrapper {
+      background: #0A1D37; /* Dark navy hardcover */
+      padding: 14px 10px 14px 14px; /* thick cover border */
+      border-radius: 12px;
+      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.45),
+                  0 10px 20px rgba(0, 0, 0, 0.25);
+      border: 3px solid #B8960C; /* Golden border edges */
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 2000px; /* 3D Perspective */
+      margin: 2rem 0;
+    }
+
+    /* Book Viewport Container */
+    .guide-book-container {
+      position: relative;
+      transition: transform 0.5s ease;
+      transform-style: preserve-3d;
+      width: 800px;
+      height: 550px;
+    }
+
+    #buyers-guide .book {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    /* Central Spine overlay shadow */
+    #buyers-guide .spine-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 40px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, 
+                    rgba(0, 0, 0, 0.2) 0%, 
+                    rgba(0, 0, 0, 0.35) 40%, 
+                    rgba(0, 0, 0, 0.45) 50%, 
+                    rgba(0, 0, 0, 0.35) 60%, 
+                    rgba(0, 0, 0, 0.2) 100%);
+      z-index: 150;
+      pointer-events: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* The leaves containing front & back pages */
+    #buyers-guide .leaf {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      left: 50%;
+      transform-origin: left center;
+      transform-style: preserve-3d;
+      z-index: 1;
+      pointer-events: auto;
+    }
+
+    /* 3D Page flip transform states */
+    #buyers-guide .leaf.flipped {
+      transform: rotateY(-180deg);
+    }
+
+    /* Individual page side wrapper */
+    #buyers-guide .page-side {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      background-color: #FCFBF7; /* cream off-white page texture */
+      padding: 1.8rem;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    #buyers-guide .page-side.front {
+      z-index: 2;
+      border-radius: 0 6px 6px 0;
+      transform: rotateY(0deg);
+      box-shadow: 6px 0 15px rgba(0, 0, 0, 0.08), 
+                  inset 4px 0 10px rgba(0, 0, 0, 0.04);
+    }
+
+    #buyers-guide .page-side.back {
+      z-index: 1;
+      border-radius: 6px 0 0 6px;
+      transform: rotateY(180deg); /* backsides face reversed */
+      box-shadow: -6px 0 15px rgba(0, 0, 0, 0.08), 
+                  inset -4px 0 10px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Page curling and brightness adjustments during flip */
+    #buyers-guide .leaf.flipping {
+      transition: transform 0.6s ease-in-out;
+    }
+
+    #buyers-guide .leaf.flipping .page-side {
+      filter: brightness(0.93) contrast(1.05);
+      /* Subtle curl simulation */
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25), 
+                  inset 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    /* Bottom page edges look (3D page depth look) */
+    #buyers-guide .page-side::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.02) 50%, rgba(0, 0, 0, 0.05));
+    }
+
+    /* Core typography inside pages */
+    #buyers-guide .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #0A1D37;
+      margin-bottom: 0.15rem;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+
+    #buyers-guide .page-subtitle-guide {
+      font-family: 'Playfair Display', serif;
+      color: #B8960C;
+      font-size: 0.95rem;
+      font-style: italic;
+      margin-bottom: 0.6rem;
+    }
+
+    #buyers-guide .gold-divider {
+      width: 50px;
+      height: 2px;
+      background-color: #B8960C;
+      margin: 0.5rem 0 0.7rem 0;
+    }
+
+    #buyers-guide .p-body {
+      font-family: 'Georgia', serif;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #333333;
+      margin-bottom: 0.6rem;
+      text-align: justify;
+    }
+
+    /* Left Image / Right Text Splits */
+    #buyers-guide .page-split {
+      display: flex;
+      height: 100%;
+      margin: -1.8rem;
+    }
+
+    #buyers-guide .page-split-img {
+      width: 50%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    #buyers-guide .page-split-img::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      box-shadow: inset -8px 0 15px rgba(0, 0, 0, 0.08);
+    }
+
+    #buyers-guide .page-split-content {
+      width: 50%;
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Double Image style */
+    #buyers-guide .dual-photos {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      height: 100%;
+    }
+    
+    #buyers-guide .dual-photos-img {
+      height: calc(50% - 0.3rem);
+      background-size: cover;
+      background-position: center;
+      border-radius: 4px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    /* Full Bleed Image Page (Pages 5 & 16) */
+    #buyers-guide .page-side.full-bleed-style {
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #buyers-guide .full-bleed-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #buyers-guide .full-bleed-overlay {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      background: rgba(10, 29, 55, 0.95);
+      border-left: 4px solid #B8960C;
+      padding: 1.2rem;
+      color: #FFF;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    #buyers-guide .full-bleed-overlay h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: #FCFBF7;
+      margin-bottom: 0.4rem;
+    }
+
+    #buyers-guide .full-bleed-overlay p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Testimonials styles */
+    #buyers-guide .testimonials-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      padding: 1rem 0;
+    }
+
+    #buyers-guide .testimonial-item {
+      position: relative;
+      margin-bottom: 2.2rem;
+      padding-left: 2rem;
+    }
+
+    #buyers-guide .testimonial-item::before {
+      content: '“';
+      position: absolute;
+      left: -0.2rem;
+      top: -1.3rem;
+      font-size: 4.5rem;
+      font-family: 'Playfair Display', serif;
+      color: rgba(184, 150, 12, 0.15);
+      line-height: 1;
+    }
+
+    #buyers-guide .testimonial-quote {
+      font-family: 'Georgia', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: #0A1D37;
+      line-height: 1.45;
+      margin-bottom: 0.4rem;
+    }
+
+    #buyers-guide .testimonial-author {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #B8960C;
+    }
+
+    /* Cover Page styling */
+    #buyers-guide .page-side.cover-style {
+      padding: 0;
+      position: relative;
+      background-color: #0A1D37;
+      color: #FFF;
+      overflow: hidden;
+    }
+
+    #buyers-guide .cover-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    #buyers-guide .cover-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(10, 29, 55, 0.9) 0%, rgba(20, 44, 76, 0.8) 100%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2.2rem 1.5rem;
+      text-align: center;
+      border: 2px solid #B8960C;
+      margin: 0.8rem;
+    }
+
+    #buyers-guide .cover-brand-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      color: #FCFBF7;
+      border-bottom: 1px solid rgba(184, 150, 12, 0.3);
+      padding-bottom: 0.6rem;
+      text-transform: uppercase;
+    }
+
+    #buyers-guide .cover-main-content {
+      margin: auto 0;
+    }
+
+    #buyers-guide .cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      line-height: 1.25;
+      color: #FFF;
+      margin-bottom: 0.6rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    #buyers-guide .cover-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: #B8960C;
+      margin-top: 0.6rem;
+    }
+
+    #buyers-guide .cover-footer {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Stats display (Page 4) */
+    #buyers-guide .stats-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+    }
+
+    #buyers-guide .stat-row {
+      display: flex;
+      flex-direction: column;
+      border-left: 2px solid #B8960C;
+      padding-left: 0.8rem;
+    }
+
+    #buyers-guide .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      color: #0A1D37;
+      font-weight: bold;
+      line-height: 1.1;
+    }
+
+    #buyers-guide .stat-desc {
+      font-family: 'Georgia', serif;
+      font-size: 0.85rem;
+      color: #333333;
+    }
+
+    /* Advantages Grid (Page 6) */
+    #buyers-guide .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.45rem;
+      margin-top: 0.6rem;
+    }
+
+    #buyers-guide .advantage-card {
+      border: 1px solid #E2E8F0;
+      background: #FFF;
+      padding: 0.5rem;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    #buyers-guide .advantage-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.78rem;
+      color: #0A1D37;
+      margin-bottom: 0.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    #buyers-guide .advantage-card h4 span {
+      color: #B8960C;
+      font-weight: bold;
+    }
+
+    #buyers-guide .advantage-card p {
+      font-family: 'Georgia', serif;
+      font-size: 0.72rem;
+      color: #666666;
+      line-height: 1.3;
+    }
+
+    /* Timeline step styles (Page 9) */
+    #buyers-guide .timeline-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    #buyers-guide .timeline-row {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 1.8rem;
+    }
+
+    #buyers-guide .timeline-row::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 5%;
+      right: 5%;
+      height: 2px;
+      background: #E2E8F0;
+      z-index: 1;
+    }
+
+    #buyers-guide .timeline-step {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 15%;
+      text-align: center;
+    }
+
+    #buyers-guide .step-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #0A1D37;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: bold;
+      font-size: 0.8rem;
+      margin-bottom: 0.4rem;
+      border: 2px solid #FCFBF7;
+      box-shadow: 0 0 0 2px #B8960C;
+    }
+
+    #buyers-guide .step-label {
+      font-family: 'Georgia', serif;
+      font-size: 0.75rem;
+      color: #0A1D37;
+      font-weight: bold;
+      line-height: 1.25;
+    }
+
+    /* Bullet point checklist style */
+    #buyers-guide .checklist-ul {
+      margin-top: 0.6rem;
+      margin-left: 0.8rem;
+      list-style: none;
+    }
+
+    #buyers-guide .checklist-ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.6rem;
+      font-family: 'Georgia', serif;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #333333;
+    }
+
+    #buyers-guide .checklist-ul li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: #B8960C;
+      font-size: 0.8rem;
+    }
+
+    /* Page 13 (Inspection Essentials breakdown) */
+    #buyers-guide .essentials-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    #buyers-guide .essential-block {
+      border-bottom: 1px solid #E2E8F0;
+      padding-bottom: 0.3rem;
+    }
+
+    #buyers-guide .essential-block h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.82rem;
+      color: #0A1D37;
+      margin-bottom: 0.1rem;
+    }
+
+    #buyers-guide .essential-block p {
+      font-family: 'Georgia', serif;
+      font-size: 0.72rem;
+      color: #666666;
+      line-height: 1.3;
+    }
+
+    /* Escrow Comparison Table (Page 17) */
+    #buyers-guide .escrow-table-container {
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      margin-top: 0.4rem;
+    }
+
+    #buyers-guide .escrow-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.58rem;
+      line-height: 1.3;
+    }
+
+    #buyers-guide .escrow-table th {
+      background-color: #0A1D37;
+      color: #FCFBF7;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      padding: 0.4rem 0.35rem;
+      border: 1px solid #08162b;
+      text-align: left;
+      font-size: 0.64rem;
+    }
+
+    #buyers-guide .escrow-table td {
+      padding: 0.35rem;
+      border: 1px solid #E2E8F0;
+      vertical-align: top;
+      color: #333333;
+    }
+
+    #buyers-guide .escrow-table tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    #buyers-guide .escrow-table ul {
+      margin: 0;
+      padding-left: 0.4rem;
+      list-style-type: none;
+    }
+
+    #buyers-guide .escrow-table li {
+      margin-bottom: 0.15rem;
+      position: relative;
+      padding-left: 0.35rem;
+    }
+
+    #buyers-guide .escrow-table li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #B8960C;
+    }
+
+    /* Columns for moving checklist (Page 18) */
+    #buyers-guide .moving-cols {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    #buyers-guide .moving-col {
+      width: 50%;
+    }
+
+    #buyers-guide .moving-block {
+      margin-bottom: 0.4rem;
+    }
+
+    #buyers-guide .moving-block h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.8rem;
+      color: #0A1D37;
+      margin-bottom: 0.1rem;
+      border-bottom: 1px solid rgba(184, 150, 12, 0.3);
+      padding-bottom: 0.05rem;
+    }
+
+    #buyers-guide .moving-block p {
+      font-family: 'Georgia', serif;
+      font-size: 0.72rem;
+      color: #333333;
+      line-height: 1.3;
+    }
+
+    /* Page 20 Layout: Preparing to Buy Form & Mortgage Checklist */
+    #buyers-guide .form-checklist-container {
+      display: flex;
+      height: 100%;
+      margin: -1.8rem;
+    }
+
+    #buyers-guide .form-section {
+      width: 50%;
+      padding: 1.2rem 1.5rem;
+      border-right: 1px solid #E2E8F0;
+      overflow: hidden;
+    }
+
+    #buyers-guide .checklist-section {
+      width: 50%;
+      padding: 1.2rem 1.5rem;
+      overflow: hidden;
+    }
+
+    #buyers-guide .form-section h3, #buyers-guide .checklist-section h3 {
+      font-family: 'Playfair Display', serif;
+      color: #0A1D37;
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+      border-bottom: 2px solid #B8960C;
+      padding-bottom: 0.2rem;
+    }
+
+    #buyers-guide .form-group {
+      margin-bottom: 0.45rem;
+    }
+
+    #buyers-guide .form-group label {
+      display: block;
+      font-size: 0.62rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: #333333;
+      margin-bottom: 0.1rem;
+    }
+
+    #buyers-guide .form-group input[type="text"], 
+    #buyers-guide .form-group textarea, 
+    #buyers-guide .form-group select {
+      width: 100%;
+      padding: 0.28rem 0.35rem;
+      border: 1px solid #E2E8F0;
+      border-radius: 3px;
+      font-size: 0.66rem;
+      font-family: inherit;
+    }
+
+    #buyers-guide .form-inline-choices {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 0.15rem;
+    }
+
+    #buyers-guide .form-inline-choices label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.72rem;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    #buyers-guide .checklist-category {
+      font-family: 'Inter', sans-serif;
+      font-weight: bold;
+      color: #B8960C;
+      font-size: 0.66rem;
+      margin: 0.45rem 0 0.2rem 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    #buyers-guide .checklist-item {
+      display: flex;
+      gap: 0.35rem;
+      margin-bottom: 0.25rem;
+      font-size: 0.66rem;
+      line-height: 1.3;
+      color: #333333;
+    }
+
+    #buyers-guide .checklist-item input[type="checkbox"] {
+      margin-top: 0.12rem;
+      accent-color: #B8960C;
+      cursor: pointer;
+    }
+
+    /* Page 22 final values checklist */
+    #buyers-guide .thankyou-list {
+      margin-top: 0.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.35rem;
+    }
+
+    #buyers-guide .thankyou-list li {
+      font-family: 'Georgia', serif;
+      font-size: 0.74rem;
+      line-height: 1.25;
+      padding-left: 0.7rem;
+      position: relative;
+      color: #333333;
+    }
+
+    #buyers-guide .thankyou-list li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: #B8960C;
+    }
+
+    /* Back Cover Disclaimer */
+    #buyers-guide .back-cover-disclaimer {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.56rem;
+      letter-spacing: 0.5px;
+      color: rgba(255, 255, 255, 0.55);
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    /* Viewer controls panel */
+    .guide-controls-container {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .guide-nav-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #FFF;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .guide-nav-btn:hover:not(:disabled) {
+      background-color: #B8960C;
+      border-color: #B8960C;
+      color: #0A1D37;
+      box-shadow: 0 0 12px rgba(184, 150, 12, 0.5);
+    }
+
+    .guide-nav-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .guide-counter-display {
+      color: #FFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      min-width: 140px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    /* Floating navigation arrows positioned on the left/right of the hardcover */
+    .guide-outer-layout {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Class rules for custom visibility display toggles for bilingual text blocks */
+    body.lang-en .lang-es { display: none !important; }
+    body.lang-es .lang-en { display: none !important; }
+
+    /* ====================================================
+       RESPONSIVE MEDIA QUERIES (MOBILE LAYOUT)
+       ==================================================== */
+    @media (max-width: 768px) {
+      #buyers-guide {
+        padding: 40px 0;
+      }
+      .guide-title-wrap h2 {
+        font-size: 1.8rem;
+      }
+      .guide-outer-layout {
+        gap: 0.5rem;
+      }
+      /* Hide floating side navigation buttons on mobile */
+      .guide-outer-layout > .guide-nav-btn {
+        display: none;
+      }
+      /* Book Container dimensions on mobile */
+      .guide-book-container {
+        width: 340px;
+        height: 480px;
+      }
+      .book-cover-wrapper {
+        padding: 8px;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+      #buyers-guide .spine-overlay {
+        display: none; /* Hide spine on single page */
+      }
+      #buyers-guide .leaf {
+        width: 100%;
+        left: 0;
+        transform-origin: center center; /* in-place page flip origin */
+      }
+      #buyers-guide .page-side {
+        padding: 1.2rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      }
+      #buyers-guide .page-side.front {
+        border-radius: 6px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      }
+      #buyers-guide .page-side.back {
+        border-radius: 6px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      }
+      #buyers-guide .page-split {
+        flex-direction: column;
+        margin: -1.2rem;
+        height: auto;
+      }
+      #buyers-guide .page-split-img {
+        width: 100%;
+        height: 150px;
+      }
+      #buyers-guide .page-split-content {
+        width: 100%;
+        padding: 1.2rem;
+      }
+      #buyers-guide .cover-overlay {
+        padding: 1.5rem 1rem;
+        margin: 0.4rem;
+      }
+      #buyers-guide .cover-title {
+        font-size: 1.6rem;
+      }
+      #buyers-guide .page-title {
+        font-size: 1.3rem;
+      }
+      #buyers-guide .p-body {
+        font-size: 0.82rem;
+        line-height: 1.4;
+      }
+      #buyers-guide .advantages-grid, 
+      #buyers-guide .essentials-container, 
+      #buyers-guide .moving-cols, 
+      #buyers-guide .form-checklist-container, 
+      #buyers-guide .thankyou-list {
+        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
+        gap: 0.8rem;
+      }
+      #buyers-guide .form-section, 
+      #buyers-guide .checklist-section {
+        width: 100% !important;
+        border-right: none !important;
+        padding: 1rem !important;
+      }
+      #buyers-guide .moving-col {
+        width: 100% !important;
+      }
+      #buyers-guide .timeline-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        margin-bottom: 1.2rem;
+      }
+      #buyers-guide .timeline-row::before {
+        display: none;
+      }
+      #buyers-guide .timeline-step {
+        width: 100% !important;
+        flex-direction: row;
+        text-align: left;
+        gap: 0.6rem;
+      }
+      #buyers-guide .step-number {
+        margin-bottom: 0;
+      }
+      #buyers-guide .escrow-table th, 
+      #buyers-guide .escrow-table td {
+        font-size: 0.58rem;
+        padding: 0.25rem;
+      }
+    }
+
   </style>
 </head>
 <body class="loading">
@@ -1594,7 +2575,6 @@
         <a href="#about" class="nav-link" data-en="About" data-es="Sobre Mí">About</a>
         <a href="#services" class="nav-link" data-en="Services" data-es="Servicios">Services</a>
         <a href="#areas" class="nav-link" data-en="Areas" data-es="Áreas">Areas</a>
-        <a href="buyers-guide.html" class="nav-link" data-en="Buyers Guide" data-es="Guía del Comprador">Buyers Guide</a>
         <a href="#contact" class="nav-link" data-en="Contact" data-es="Contacto">Contact</a>
       </nav>
 
@@ -1618,7 +2598,6 @@
         <a href="#about" class="nav-link mobile-link" data-en="About" data-es="Sobre Mí">About</a>
         <a href="#services" class="nav-link mobile-link" data-en="Services" data-es="Servicios">Services</a>
         <a href="#areas" class="nav-link mobile-link" data-en="Areas" data-es="Áreas">Areas</a>
-        <a href="buyers-guide.html" class="nav-link mobile-link" data-en="Buyers Guide" data-es="Guía del Comprador">Buyers Guide</a>
         <a href="#contact" class="nav-link mobile-link" data-en="Contact" data-es="Contacto">Contact</a>
       </nav>
     </div>
@@ -1665,6 +2644,1135 @@
       </div>
     </div>
   </section>
+
+
+  <!-- BUYERS GUIDE SECTION -->
+  <section id="buyers-guide" class="reveal-section" style="background-color: #4A5568; padding: 60px 0; color: #FFF; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden;">
+    <div class="buyers-guide-container">
+      <div class="guide-title-wrap">
+        <h2 data-en="Buyers Guide" data-es="Guía del Comprador">Buyers Guide</h2>
+      </div>
+
+      <!-- Outer Layout: Left Arrow | Hardcover Book Wrapper | Right Arrow -->
+      <div class="guide-outer-layout">
+        <!-- Floating Left Navigation Arrow Button (Desktop only, hidden on mobile) -->
+        <button class="guide-nav-btn" id="guide-prev-btn-float" aria-label="Previous Page">←</button>
+
+        <!-- Hardcover Book Wrapper -->
+        <div class="book-cover-wrapper">
+          <div class="guide-book-container" id="guide-book-viewport">
+            <div class="book" id="guide-book-element">
+              <!-- Center Spine Shadow (Desktop only) -->
+              <div class="spine-overlay"></div>
+              
+                      <!-- Center Spine Shadow (Desktop only) -->
+        <div class="spine-overlay"></div>
+
+        <!-- ====================================================
+             LEAF 1 (Page 1 Cover | Page 2 Welcome)
+             ==================================================== -->
+        <div class="leaf" id="leaf-0">
+          <!-- Page 1: COVER -->
+          <div class="page-side front cover-style">
+            <div class="cover-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="cover-overlay">
+              <div class="cover-brand-header">
+                Nick Sadek | Sotheby's International Realty
+              </div>
+              <div class="cover-main-content">
+                <h1 class="cover-title">
+                  <span class="lang-en">Buying with Confidence</span>
+                  <span class="lang-es">Compra con Confianza</span>
+                </h1>
+                <div class="cover-subtitle">
+                  <span class="lang-en">YOUR VISION | YOUR LIFESTYLE | YOUR HOME</span>
+                  <span class="lang-es">TU VISIÓN | TU ESTILO DE VIDA | TU HOGAR</span>
+                </div>
+              </div>
+              <div class="cover-footer">
+                <span class="lang-en">Serving the Greater Sacramento Area</span>
+                <span class="lang-es">Sirviendo el Área Metropolitana de Sacramento</span>
+              </div>
+            </div>
+          </div>
+          <!-- Page 2: WELCOME -->
+          <div class="page-side back">
+            <h2 class="page-title">
+              <span class="lang-en">Welcome Home</span>
+              <span class="lang-es">Bienvenido a Casa</span>
+            </h2>
+            <div class="page-subtitle-guide">Nick Sadek | Sotheby's International Realty</div>
+            <div class="gold-divider"></div>
+            
+            <div class="lang-en">
+              <p class="p-body">We take great pride in discovering and bringing to life the unique qualities of every home. With our extensive experience, resources and global connections, we skillfully match these special properties with those who will cherish them as we do.</p>
+              <p class="p-body">We understand that purchasing a home is one of the most significant financial decisions of your life. It involves not only finding a new place to live but also making a substantial investment and creating a valuable asset. By partnering with a Nick Sadek Sotheby's International Realty Global Real Estate Advisor, you will gain access to expert support, market knowledge, and strategic skills, ensuring you navigate the competitive market with confidence and security.</p>
+            </div>
+            
+            <div class="lang-es">
+              <p class="p-body">Nos enorgullece descubrir y dar vida a las cualidades únicas de cada hogar. Con nuestra amplia experiencia, recursos y conexiones globales, unimos hábilmente estas propiedades especiales con quienes las valorarán tanto como nosotros.</p>
+              <p class="p-body">Entendemos que comprar una casa es una de las decisiones financieras más importantes de su vida. No solo implica encontrar un nuevo lugar para vivir, sino también realizar una inversión sustancial y crear un activo valioso. Al asociarse con un Asesor Global de Bienes Raíces de Nick Sadek Sotheby's International Realty, tendrá acceso a apoyo experto, conocimiento del mercado y habilidades estratégicas, lo que garantiza que navegue por el mercado competitivo con confianza y seguridad.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================
+             LEAF 2 (Page 3 Pledge | Page 4 Numbers)
+             ==================================================== -->
+        <div class="leaf" id="leaf-1">
+          <!-- Page 3: SERVICE PLEDGE -->
+          <div class="page-side front" style="padding: 0;">
+            <div class="page-split">
+              <div class="page-split-img" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80');"></div>
+              <div class="page-split-content">
+                <h2 class="page-title">
+                  <span class="lang-en">Our Service Pledge</span>
+                  <span class="lang-es">Nuestro Compromiso</span>
+                </h2>
+                <div class="page-subtitle-guide">
+                  <span class="lang-en">Our Pledge to You</span>
+                  <span class="lang-es">Nuestro Compromiso de Servicio</span>
+                </div>
+                <div class="gold-divider"></div>
+                
+                <div class="lang-en">
+                  <p class="p-body" style="font-size: 0.95rem; margin-bottom: 0.8rem;">At Nick Sadek Sotheby's International Realty, we understand that purchasing a home is one of life's most meaningful decisions. It is more than a transaction. It is the beginning of a new chapter shaped by your vision and your lifestyle.</p>
+                  <p class="p-body" style="font-size: 0.95rem; margin-bottom: 0.8rem;">Our Service Pledge is rooted in providing a refined and personalized experience. Whether you are searching for a luxury estate, primary residence, or vacation retreat, our commitment is to help you find a home that truly reflects your lifestyle.</p>
+                  <p class="p-body" style="font-size: 0.95rem; margin-bottom: 0.8rem;">Through our global reach combined with local market relationships, you gain access to exceptional properties and elevated representation tailored to your needs.</p>
+                </div>
+                
+                <div class="lang-es">
+                  <p class="p-body" style="font-size: 0.95rem; margin-bottom: 0.8rem;">En Nick Sadek Sotheby's International Realty, entendemos que comprar una casa es una de las decisiones más significativas. Es más que una transacción. Es el comienzo de un nuevo capítulo moldeado por su visión y estilo de vida.</p>
+                  <p class="p-body" style="font-size: 0.95rem; margin-bottom: 0.8rem;">Nuestro Compromiso se basa en proporcionar una experiencia refinada y personalizada. Nos tomamos el tiempo para entender no solo las características que desea en un hogar, sino la forma en que desea vivir.</p>
+                  <p class="p-body" style="font-size: 0.95rem; margin-bottom: 0.8rem;">Sobre todo, estamos comprometidos a servirle con integridad, profesionalismo, discreción y cuidado.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Page 4: OUR NUMBERS -->
+          <div class="page-side back" style="padding: 0;">
+            <div class="page-split">
+              <div class="page-split-content">
+                <h2 class="page-title">
+                  <span class="lang-en">Our Numbers</span>
+                  <span class="lang-es">Nuestros Números</span>
+                </h2>
+                <div class="page-subtitle-guide">
+                  <span class="lang-en">Working For You</span>
+                  <span class="lang-es">Trabajan para Usted</span>
+                </div>
+                <div class="gold-divider"></div>
+                
+                <div class="stats-container">
+                  <div class="stat-row">
+                    <div class="stat-number">$4.8B</div>
+                    <div class="stat-desc">
+                      <span class="lang-en">Billion in total sales volume</span>
+                      <span class="lang-es">Mil Millones en volumen total de ventas</span>
+                    </div>
+                  </div>
+                  <div class="stat-row">
+                    <div class="stat-number">4</div>
+                    <div class="stat-desc">
+                      <span class="lang-en">Offices in five counties</span>
+                      <span class="lang-es">Oficinas en cinco condados</span>
+                    </div>
+                  </div>
+                  <div class="stat-row">
+                    <div class="stat-number">215</div>
+                    <div class="stat-desc">
+                      <span class="lang-en">Global Advisors supported by 13 Associates</span>
+                      <span class="lang-es">Asesores Globales apoyados por 13 Asociados</span>
+                    </div>
+                  </div>
+                  <div class="stat-row">
+                    <div class="stat-number">#1</div>
+                    <div class="stat-desc">
+                      <span class="lang-en">Listing Brokerage for multimillion dollar listings</span>
+                      <span class="lang-es">Correduría para propiedades multimillonarias</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="page-split-img" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80');"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================
+             LEAF 3 (Page 5 Full Photo | Page 6 10 Advantages)
+             ==================================================== -->
+        <div class="leaf" id="leaf-2">
+          <!-- Page 5: FULL PHOTO PAGE -->
+          <div class="page-side front full-bleed-style">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Luxury Real Estate Office Entrance" class="full-bleed-img">
+            <div class="full-bleed-overlay">
+              <h4>Nick Sadek | Sotheby's International Realty</h4>
+              <p>
+                <span class="lang-en">Luxury Real Estate Showroom Entrance</span>
+                <span class="lang-es">Entrada de la Oficina de Bienes Raíces de Lujo</span>
+              </p>
+            </div>
+          </div>
+          <!-- Page 6: 10 ADVANTAGES -->
+          <div class="page-side back">
+            <h2 class="page-title" style="font-size: 1.8rem;">
+              <span class="lang-en">10 Essential Advantages</span>
+              <span class="lang-es">10 Ventajas Esenciales</span>
+            </h2>
+            <div class="page-subtitle-guide">
+              <span class="lang-en">Of Professional Representation</span>
+              <span class="lang-es">De la Representación Profesional</span>
+            </div>
+            <div class="gold-divider" style="margin-bottom: 0.6rem;"></div>
+            
+            <div class="advantages-grid">
+              <!-- Item 1 -->
+              <div class="advantage-card">
+                <h4><span>1.</span> 
+                  <span class="lang-en">KNOWLEDGE</span>
+                  <span class="lang-es">CONOCIMIENTO</span>
+                </h4>
+                <p class="lang-en">Our experts have in-depth insights into the local market pricing and neighborhoods.</p>
+                <p class="lang-es">Nuestros expertos tienen conocimientos profundos del mercado local.</p>
+              </div>
+              <!-- Item 2 -->
+              <div class="advantage-card">
+                <h4><span>2.</span> 
+                  <span class="lang-en">ACCESS</span>
+                  <span class="lang-es">ACCESO</span>
+                </h4>
+                <p class="lang-en">We provide exclusive access to Off-Market and Coming Soon listings.</p>
+                <p class="lang-es">Proporcionamos acceso exclusivo a propiedades fuera del mercado.</p>
+              </div>
+              <!-- Item 3 -->
+              <div class="advantage-card">
+                <h4><span>3.</span> 
+                  <span class="lang-en">NETWORK</span>
+                  <span class="lang-es">RED</span>
+                </h4>
+                <p class="lang-en">Global network of inspectors, brokers, and real estate professionals.</p>
+                <p class="lang-es">Tenemos acceso a una red global de profesionales de la industria.</p>
+              </div>
+              <!-- Item 4 -->
+              <div class="advantage-card">
+                <h4><span>4.</span> 
+                  <span class="lang-en">CONTRACTS</span>
+                  <span class="lang-es">CONTRATOS</span>
+                </h4>
+                <p class="lang-en">Experienced navigation of legal complexities, disclosures, and reports.</p>
+                <p class="lang-es">Somos expertos en los documentos legales de las transacciones.</p>
+              </div>
+              <!-- Item 5 -->
+              <div class="advantage-card">
+                <h4><span>5.</span> 
+                  <span class="lang-en">RESOLVING</span>
+                  <span class="lang-es">SOLUCIÓN</span>
+                </h4>
+                <p class="lang-en">Proven record of overcoming hurdles and tackling transaction obstacles.</p>
+                <p class="lang-es">Tenemos un historial probado de superar obstáculos.</p>
+              </div>
+              <!-- Item 6 -->
+              <div class="advantage-card">
+                <h4><span>6.</span> 
+                  <span class="lang-en">TIME SAVING</span>
+                  <span class="lang-es">AHORRO</span>
+                </h4>
+                <p class="lang-en">We handle research and paperwork, streamlining your entire journey.</p>
+                <p class="lang-es">Manejamos todo el trabajo detrás de escena.</p>
+              </div>
+              <!-- Item 7 -->
+              <div class="advantage-card">
+                <h4><span>7.</span> 
+                  <span class="lang-en">COUNSEL</span>
+                  <span class="lang-es">ASESORÍA</span>
+                </h4>
+                <p class="lang-en">Confidential advisors and fiduciaries keeping emotions in check.</p>
+                <p class="lang-es">Comprar una casa puede ser emocionalmente intenso.</p>
+              </div>
+              <!-- Item 8 -->
+              <div class="advantage-card">
+                <h4><span>8.</span> 
+                  <span class="lang-en">FUTURE</span>
+                  <span class="lang-es">FUTURO</span>
+                </h4>
+                <p class="lang-en">We remain available for advice on home improvements and market trends.</p>
+                <p class="lang-es">Incluso después de su transacción, puede contar con nosotros.</p>
+              </div>
+              <!-- Item 9 -->
+              <div class="advantage-card">
+                <h4><span>9.</span> 
+                  <span class="lang-en">RISK MITIGATION</span>
+                  <span class="lang-es">MITIGACIÓN</span>
+                </h4>
+                <p class="lang-en">With our years of experience, we help protect your investment.</p>
+                <p class="lang-es">Los errores en bienes raíces pueden ser costosos.</p>
+              </div>
+              <!-- Item 10 -->
+              <div class="advantage-card">
+                <h4><span>10.</span> 
+                  <span class="lang-en">ACTION</span>
+                  <span class="lang-es">ACCIÓN</span>
+                </h4>
+                <p class="lang-en">Continual education helps us adapt to shifting market regulations.</p>
+                <p class="lang-es">El mercado inmobiliario evoluciona continuamente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================
+             LEAF 4 (Page 7 Advisory Fees | Page 8 Testimonials)
+             ==================================================== -->
+        <div class="leaf" id="leaf-3">
+          <!-- Page 7: ADVISORY FEES -->
+          <div class="page-side front" style="padding: 0;">
+            <div class="page-split">
+              <div class="page-split-content" style="width: 55%; padding: 1.8rem;">
+                <h2 class="page-title" style="font-size: 1.8rem;">
+                  <span class="lang-en">Advisory Fees</span>
+                  <span class="lang-es">Honorarios de Asesoría</span>
+                </h2>
+                <div class="page-subtitle-guide">
+                  <span class="lang-en">Representation Details</span>
+                  <span class="lang-es">Detalles de Representación</span>
+                </div>
+                <div class="gold-divider" style="margin-bottom: 0.8rem;"></div>
+                
+                <div class="lang-en">
+                  <p class="p-body" style="font-size: 0.88rem; margin-bottom: 0.6rem; text-align: left;">Global Real Estate Advisors are compensated per the terms of a Buyer's Representation Agreement.</p>
+                  <p class="p-body" style="font-size: 0.88rem; margin-bottom: 0.6rem; text-align: left;"><strong>SELLER-PAID COMPENSATION:</strong> The seller may offer to pay a Buyer's Broker compensation through the purchase contract. We request that the seller pays the compensation as a term of the agreement.</p>
+                  <p class="p-body" style="font-size: 0.88rem; margin-bottom: 0.6rem; text-align: left;"><strong>BUYER-PAID COMMISSION:</strong> The seller may only offer a portion of the compensation. Any portion not covered by a seller's concession would be paid by you pursuant to the Representation Agreement.</p>
+                </div>
+                
+                <div class="lang-es">
+                  <p class="p-body" style="font-size: 0.88rem; margin-bottom: 0.6rem; text-align: left;">Los Asesores Globales son compensados según los términos del Acuerdo de Representación del Comprador.</p>
+                  <p class="p-body" style="font-size: 0.88rem; margin-bottom: 0.6rem; text-align: left;"><strong>COMPENSACIÓN PAGADA POR EL VENDEDOR:</strong> El vendedor puede ofrecer pagar la compensación del Corredor del Comprador. Solicitaremos que el vendedor pague esta compensación como un término del acuerdo.</p>
+                  <p class="p-body" style="font-size: 0.88rem; margin-bottom: 0.6rem; text-align: left;"><strong>COMISIÓN PAGADA POR EL COMPRADOR:</strong> El vendedor solo puede ofrecer una parte. Cualquier porción no cubierta por la concesión del vendedor tendrá que ser pagada por usted.</p>
+                </div>
+              </div>
+              <div class="page-split-img" style="width: 45%; background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80');"></div>
+            </div>
+          </div>
+          <!-- Page 8: TESTIMONIALS -->
+          <div class="page-side back" style="background-color: #FFF;">
+            <h2 class="page-title">
+              <span class="lang-en">Client Testimonials</span>
+              <span class="lang-es">Testimonios de Clientes</span>
+            </h2>
+            <div class="page-subtitle-guide">
+              <span class="lang-en">What Our Clients Say</span>
+              <span class="lang-es">Lo Que Dicen Nuestros Clientes</span>
+            </div>
+            <div class="gold-divider"></div>
+            
+            <div class="testimonials-container">
+              <div class="testimonial-item">
+                <p class="testimonial-quote">
+                  <span class="lang-en">"Thank You for the Excellent Service."</span>
+                  <span class="lang-es">"Gracias por el excelente servicio."</span>
+                </p>
+                <div class="testimonial-author">— Tigran T.</div>
+              </div>
+              
+              <div class="testimonial-item">
+                <p class="testimonial-quote">
+                  <span class="lang-en">"Amazing Agents Spectacular Service."</span>
+                  <span class="lang-es">"Agentes increíbles, servicio espectacular."</span>
+                </p>
+                <div class="testimonial-author">— Mike M.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================
+             LEAF 5 (Page 9 The Journey | Page 10 Financial Prep)
+             ==================================================== -->
+        <div class="leaf" id="leaf-4">
+          <!-- Page 9: THE JOURNEY TIMELINE -->
+          <div class="page-side front">
+            <h2 class="page-title">
+              <span class="lang-en">The Buying Journey</span>
+              <span class="lang-es">El Proceso de Compra</span>
+            </h2>
+            <div class="page-subtitle-guide">
+              <span class="lang-en">Step-by-Step Escrow Guide</span>
+              <span class="lang-es">Paso a Paso del Depósito en Garantía</span>
+            </div>
+            <div class="gold-divider" style="margin-bottom: 1.5rem;"></div>
+            
+            <div class="timeline-container">
+              <!-- Top Row (Steps 1-6) -->
+              <div class="timeline-row">
+                <div class="timeline-step">
+                  <div class="step-number">1</div>
+                  <div class="step-label">
+                    <span class="lang-en">Initial Consultation</span>
+                    <span class="lang-es">Consulta Inicial</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <div class="step-number">2</div>
+                  <div class="step-label">
+                    <span class="lang-en">Pre-Approval</span>
+                    <span class="lang-es">Pre-Aprobación</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <div class="step-number">3</div>
+                  <div class="step-label">
+                    <span class="lang-en">Property Search</span>
+                    <span class="lang-es">Búsqueda</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <div class="step-number">4</div>
+                  <div class="step-label">
+                    <span class="lang-en">Offer Submission</span>
+                    <span class="lang-es">Presentar Oferta</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <div class="step-number">5</div>
+                  <div class="step-label">
+                    <span class="lang-en">Negotiation</span>
+                    <span class="lang-es">Negociación</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <div class="step-number">6</div>
+                  <div class="step-label">
+                    <span class="lang-en">Home Inspection</span>
+                    <span class="lang-es">Inspección</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Bottom Row (Steps 7-12) -->
+              <div class="timeline-row" style="margin-bottom: 0;">
+                <div class="timeline-step">
+                  <div class="step-number">7</div>
+                  <div class="step-label">
+                    <span class="lang-en">Insurance</span>
+                    <span class="lang-es">Seguro</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <div class="step-number">8</div>
+                  <div class="step-label">
+                    <span class="lang-en">Coordinate Appraisal</span>
+                    <span class="lang-es">Tasación</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <div class="step-number">9</div>
+                  <div class="step-label">
+                    <span class="lang-en">Mortgage Financing</span>
+                    <span class="lang-es">Financiamiento</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <div class="step-number">10</div>
+                  <div class="step-label">
+                    <span class="lang-en">Closing Walk-Through</span>
+                    <span class="lang-es">Recorrido Final</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <div class="step-number">11</div>
+                  <div class="step-label">
+                    <span class="lang-en">Close of Escrow</span>
+                    <span class="lang-es">Cierre de Depósito</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <div class="step-number">12</div>
+                  <div class="step-label">
+                    <span class="lang-en">New Home Awaits!</span>
+                    <span class="lang-es">¡Nueva Casa!</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Page 10: FINANCIAL PREPARATION -->
+          <div class="page-side back" style="padding: 0;">
+            <div class="page-split">
+              <div class="page-split-img" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80');"></div>
+              <div class="page-split-content" style="padding: 1.8rem;">
+                <h2 class="page-title" style="font-size: 1.8rem;">
+                  <span class="lang-en">Financial Prep</span>
+                  <span class="lang-es">Preparación Financiera</span>
+                </h2>
+                <div class="page-subtitle-guide">
+                  <span class="lang-en">Preparing for the Loan</span>
+                  <span class="lang-es">Preparación para el Préstamo</span>
+                </div>
+                <div class="gold-divider" style="margin-bottom: 0.8rem;"></div>
+                
+                <div class="lang-en" style="font-size: 0.85rem; line-height: 1.45;">
+                  <p style="margin-bottom: 0.5rem;">The most important first step is understanding loan programs and qualifying requirements.</p>
+                  <ol style="padding-left: 1.1rem; margin-bottom: 0.5rem;">
+                    <li>Financial specialists require proof of assets, income, good credit, and tax returns.</li>
+                    <li>Review all available loan products to determine the best choice.</li>
+                    <li>Discuss credit standing and income to qualify for your target loan type.</li>
+                    <li>Seek alternative non-conventional loans if needed.</li>
+                    <li>Self-employed: compare increasing taxable income vs bank statement programs.</li>
+                  </ol>
+                </div>
+                
+                <div class="lang-es" style="font-size: 0.85rem; line-height: 1.45;">
+                  <p style="margin-bottom: 0.5rem;">El primer paso más importante es comprender los programas de préstamos y sus requisitos.</p>
+                  <ol style="padding-left: 1.1rem; margin-bottom: 0.5rem;">
+                    <li>Se requerirá prueba de activos, ingresos, buen historial y declaraciones de impuestos.</li>
+                    <li>Revise todos los productos para determinar cuál es el más adecuado.</li>
+                    <li>Analice su crédito e ingresos para asegurar la calificación.</li>
+                    <li>Busque alternativas no convencionales si no califica para préstamos tradicionales.</li>
+                    <li>Trabajadores independientes: compare ingresos imponibles vs programas de extractos bancarios.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================
+             LEAF 6 (Page 11 Making Offer | Page 12 Contingencies)
+             ==================================================== -->
+        <div class="leaf" id="leaf-5">
+          <!-- Page 11: MAKING AN OFFER -->
+          <div class="page-side front" style="padding: 0;">
+            <div class="page-split">
+              <div class="page-split-content" style="width: 55%; padding: 2rem;">
+                <h2 class="page-title" style="font-size: 1.65rem;">
+                  <span class="lang-en">Making an Offer</span>
+                  <span class="lang-es">Haciendo una Oferta</span>
+                </h2>
+                <div class="page-subtitle-guide">
+                  <span class="lang-en">Negotiating Terms</span>
+                  <span class="lang-es">Negociando Condiciones</span>
+                </div>
+                <div class="gold-divider" style="margin-bottom: 0.8rem;"></div>
+                
+                <div class="lang-en" style="font-size: 0.85rem; line-height: 1.45;">
+                  <p style="margin-bottom: 0.4rem;">Once you find the property you like, we write a purchase agreement. We can negotiate key areas:</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>PRICE:</strong> Depends on condition, activity, market length, and seller urgency.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>DUE DILIGENCE:</strong> Quick inspections show seriousness and raise acceptance odds.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>MOVE-IN:</strong> Flexibility on dates makes your offer more attractive.</p>
+                  <p style="margin-bottom: 0.4rem;">The seller will Accept, Reject, or Counter. Counteroffers are highly common; we will negotiate the best terms on your behalf.</p>
+                </div>
+                
+                <div class="lang-es" style="font-size: 0.85rem; line-height: 1.45;">
+                  <p style="margin-bottom: 0.4rem;">Redactaremos un acuerdo de compra una vez que encuentre la propiedad. Podemos negociar:</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>PRECIO:</strong> Depende de la condición, actividad de compradores y urgencia del vendedor.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>DILIGENCIA:</strong> Inspecciones rápidas demuestran seriedad.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>MUDANZA:</strong> La flexibilidad en la fecha de posesión ayuda a la aceptación.</p>
+                  <p style="margin-bottom: 0.4rem;">La presentaremos al agente del listado y/o vendedor, quien luego hará uno de los siguientes: Aceptar | Rechazar | Contraofertar. Trabajaremos juntos para revisar cada área y negociar a su favor.</p>
+                </div>
+              </div>
+              <div class="page-split-content" style="width: 45%; padding: 1.5rem;">
+                <div class="dual-photos">
+                  <div class="dual-photos-img" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80');"></div>
+                  <div class="dual-photos-img" style="background-image: url('https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80');"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Page 12: CONTINGENCIES -->
+          <div class="page-side back" style="padding: 0;">
+            <div class="page-split">
+              <div class="page-split-img" style="width: 45%; background-image: url('https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?auto=format&fit=crop&w=800&q=80');"></div>
+              <div class="page-split-content" style="width: 55%; padding: 2rem;">
+                <h2 class="page-title" style="font-size: 1.7rem;">
+                  <span class="lang-en">Contingencies</span>
+                  <span class="lang-es">Contingencias</span>
+                </h2>
+                <div class="page-subtitle-guide">
+                  <span class="lang-en">Protecting Your Contract</span>
+                  <span class="lang-es">Protección Contractual</span>
+                </div>
+                <div class="gold-divider" style="margin-bottom: 0.8rem;"></div>
+                
+                <div class="lang-en" style="font-size: 0.85rem; line-height: 1.4;">
+                  <p style="margin-bottom: 0.4rem;">We will help navigate numerous contract contingencies. An Inspection Contingency allows you to gather deeper home information.</p>
+                  <p style="font-weight: 600; margin-bottom: 0.3rem;">WE ASSIST WITH:</p>
+                  <ul style="padding-left: 1rem; margin-bottom: 0.4rem;">
+                    <li>Recommending & booking inspectors.</li>
+                    <li>Scheduling inspector appointments.</li>
+                    <li>Conducting Agent Visual Inspections.</li>
+                    <li>Reviewing inspection reports with you.</li>
+                    <li>Facilitating lender/appraisal access.</li>
+                    <li>Assisting with Requests for Repair.</li>
+                  </ul>
+                </div>
+                
+                <div class="lang-es" style="font-size: 0.85rem; line-height: 1.4;">
+                  <p style="margin-bottom: 0.4rem;">Le ayudaremos a navegar las contingencias. La Contingencia de Inspección le permite examinar a fondo el estado físico.</p>
+                  <p style="font-weight: 600; margin-bottom: 0.3rem;">ASISTIMOS CON:</p>
+                  <ul style="padding-left: 1rem; margin-bottom: 0.4rem;">
+                    <li>Recomendar y organizar inspectores.</li>
+                    <li>Coordinar citas de inspección.</li>
+                    <li>Realizar la Inspección Visual del Agente.</li>
+                    <li>Analizar informes de inspección con usted.</li>
+                    <li>Facilitar el acceso del tasador.</li>
+                    <li>Gestionar Solicitudes de Reparación.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================
+             LEAF 7 (Page 13 Inspections | Page 14 Closing Process)
+             ==================================================== -->
+        <div class="leaf" id="leaf-6">
+          <!-- Page 13: HOME INSPECTION ESSENTIALS -->
+          <div class="page-side front" style="padding: 0;">
+            <div class="page-split">
+              <div class="page-split-img" style="width: 35%; background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80');"></div>
+              <div class="page-split-content" style="width: 65%; padding: 2rem;">
+                <h2 class="page-title" style="font-size: 1.55rem; margin-bottom: 0.1rem;">
+                  <span class="lang-en">Inspection Essentials</span>
+                  <span class="lang-es">Elementos de Inspección</span>
+                </h2>
+                <div class="page-subtitle-guide" style="font-size: 0.95rem; margin-bottom: 0.5rem;">
+                  <span class="lang-en">9 Critical Evaluation Areas</span>
+                  <span class="lang-es">9 Áreas Críticas a Evaluar</span>
+                </div>
+                <div class="gold-divider" style="margin-bottom: 0.5rem;"></div>
+                
+                <div class="essentials-container">
+                  <div class="essential-block">
+                    <h4><span class="lang-en">1. Structure</span><span class="lang-es">1. Estructura</span></h4>
+                    <p class="lang-en">Skeleton's response to gravity, soil, and weather.</p>
+                    <p class="lang-es">El "esqueleto" que resiste el clima y la gravedad.</p>
+                  </div>
+                  <div class="essential-block">
+                    <h4><span class="lang-en">2. Exterior</span><span class="lang-es">2. Exterior</span></h4>
+                    <p class="lang-en">Sidewalks, doors, siding, trim, and drainage.</p>
+                    <p class="lang-es">Examen de aceras, accesos, drenaje y puertas.</p>
+                  </div>
+                  <div class="essential-block">
+                    <h4><span class="lang-en">3. Roofing</span><span class="lang-es">3. Techo</span></h4>
+                    <p class="lang-en">Roof age, shingles, gutters, and drainage status.</p>
+                    <p class="lang-es">Antigüedad, tejas, canaletas y drenaje.</p>
+                  </div>
+                  <div class="essential-block">
+                    <h4><span class="lang-en">4. Plumbing</span><span class="lang-es">4. Plomería</span></h4>
+                    <p class="lang-en">Water supply, drainage systems, and water heater.</p>
+                    <p class="lang-es">Suministro, drenaje, calentador y tuberías.</p>
+                  </div>
+                  <div class="essential-block">
+                    <h4><span class="lang-en">5. Electrical</span><span class="lang-es">5. Eléctrico</span></h4>
+                    <p class="lang-en">Entrance wires, panels, fuses, and breakers.</p>
+                    <p class="lang-es">Cables de entrada, tableros y fusibles.</p>
+                  </div>
+                  <div class="essential-block">
+                    <h4><span class="lang-en">6. HVAC</span><span class="lang-es">6. HVAC</span></h4>
+                    <p class="lang-en">Vents, heating, and cooling equipment status.</p>
+                    <p class="lang-es">Sistemas de conductos, calefacción y aire.</p>
+                  </div>
+                  <div class="essential-block" style="border-bottom:none; padding-bottom:0;">
+                    <h4><span class="lang-en">7. Interiors</span><span class="lang-es">7. Interiores</span></h4>
+                    <p class="lang-en">Walls, ceilings, floors, cabinets, and garage.</p>
+                    <p class="lang-es">Paredes, techos, pisos y gabinetes.</p>
+                  </div>
+                  <div class="essential-block" style="border-bottom:none; padding-bottom:0;">
+                    <h4><span class="lang-en">8. Insulation</span><span class="lang-es">8. Aislamiento</span></h4>
+                    <p class="lang-en">Thermal insulation and attic ventilation levels.</p>
+                    <p class="lang-es">Aislamiento térmico y ventilación del ático.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Page 14: DURING THE CLOSING PROCESS -->
+          <div class="page-side back" style="padding: 0;">
+            <div class="page-split">
+              <div class="page-split-img" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80');"></div>
+              <div class="page-split-content" style="padding: 1.8rem;">
+                <h2 class="page-title" style="font-size: 1.8rem;">
+                  <span class="lang-en">Closing Protocol</span>
+                  <span class="lang-es">Protocolo de Cierre</span>
+                </h2>
+                <div class="page-subtitle-guide">
+                  <span class="lang-en">Financial Dos & Don'ts</span>
+                  <span class="lang-es">Qué Evitar Durante el Cierre</span>
+                </div>
+                <div class="gold-divider" style="margin-bottom: 0.8rem;"></div>
+                
+                <div class="lang-en" style="font-size: 0.85rem; line-height: 1.45;">
+                  <p style="margin-bottom: 0.4rem; font-weight: bold; color: var(--navy);">CRITICAL FINANCING GUIDELINES:</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>AVOID CHANGING JOBS:</strong> Job changes could trigger loan denials, especially when moving fields or reducing pay.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>AVOID SWITCHING BANKS:</strong> Verified assets must remain in their verified accounts until needed for closing funds.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>AVOID PAYING BILLS:</strong> Don't clear collections or loans unless instructed by your loan officer.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>AVOID LARGE PURCHASES:</strong> Financing a vehicle or spending cash reserves might disqualify your debt ratios.</p>
+                </div>
+                
+                <div class="lang-es" style="font-size: 0.85rem; line-height: 1.45;">
+                  <p style="margin-bottom: 0.4rem; font-weight: bold; color: var(--navy);">PAUTAS FINANCIERAS CRÍTICAS:</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>EVITE CAMBIAR DE EMPLEO:</strong> Un cambio de trabajo puede provocar la denegación del crédito hipotecario.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>EVITE MOVER DINERO:</strong> Mantenga los fondos verificados en sus respectivas cuentas bancarias.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>EVITE PAGAR CUENTAS:</strong> No liquide saldos de deudas a menos que el prestamista lo autorice.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>EVITE COMPRAS GRANDES:</strong> Compras de autos o muebles aumentan su deuda y pueden descalificarlo.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================
+             LEAF 8 (Page 15 Closing Deal | Page 16 Kitchen Photo)
+             ==================================================== -->
+        <div class="leaf" id="leaf-7">
+          <!-- Page 15: CLOSING THE DEAL -->
+          <div class="page-side front" style="padding: 0;">
+            <div class="page-split">
+              <div class="page-split-content" style="width: 55%; padding: 1.8rem;">
+                <h2 class="page-title" style="font-size: 1.7rem; margin-bottom: 0.1rem;">
+                  <span class="lang-en">Closing the Deal</span>
+                  <span class="lang-es">Cerrando el Trato</span>
+                </h2>
+                <div class="page-subtitle-guide" style="margin-bottom: 0.6rem;">
+                  <span class="lang-en">The Moment Arrives</span>
+                  <span class="lang-es">El Momento Esperado</span>
+                </div>
+                <div class="gold-divider" style="margin-bottom: 0.8rem;"></div>
+                
+                <div class="lang-en" style="font-size: 0.85rem; line-height: 1.4;">
+                  <p style="margin-bottom: 0.5rem;">Closing day is when ownership transfers and the home officially becomes yours.</p>
+                  <p style="margin-bottom: 0.5rem;">Title and Escrow companies coordinate signing, receive funds, and prepare recordings.</p>
+                  <p style="margin-bottom: 0.5rem;"><strong>YOUR APPOINTMENT:</strong> Your Advisor guides you through. Bringing a valid government-issued ID is mandatory.</p>
+                  <p style="margin-bottom: 0.5rem; font-weight: 600; color: var(--gold);">CONGRATULATIONS: This begins a beautiful new life chapter. Thank you for trusting Nick Sadek Sotheby's!</p>
+                </div>
+                
+                <div class="lang-es" style="font-size: 0.85rem; line-height: 1.4;">
+                  <p style="margin-bottom: 0.5rem;">El cierre es el día en que la propiedad se transfiere oficialmente a su nombre.</p>
+                  <p style="margin-bottom: 0.5rem;">La compañía de Títulos coordina la firma, recauda fondos y registra la escritura.</p>
+                  <p style="margin-bottom: 0.5rem;"><strong>SU CITA:</strong> Su Asesor le guiará en los pasos. Traiga una identificación oficial vigente para notarizar los documentos.</p>
+                  <p style="margin-bottom: 0.5rem; font-weight: 600; color: var(--gold);">¡FELICITACIONES! Es el comienzo de nuevos recuerdos y metas. ¡Bienvenido a casa!</p>
+                </div>
+              </div>
+              <div class="page-split-img" style="width: 45%; background-image: url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800&q=80');"></div>
+            </div>
+          </div>
+          <!-- Page 16: FULL PHOTO KITCHEN -->
+          <div class="page-side back full-bleed-style">
+            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Luxury Kitchen Marble Island" class="full-bleed-img">
+            <div class="full-bleed-overlay">
+              <h4>Nick Sadek | Sotheby's International Realty</h4>
+              <p>
+                <span class="lang-en">Luxury Kitchen with Custom Marble Island</span>
+                <span class="lang-es">Cocina de Lujo con Isla de Mármol Personalizada</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================
+             LEAF 9 (Page 17 Life of Escrow Table | Page 18 Pack Pro)
+             ==================================================== -->
+        <div class="leaf" id="leaf-8">
+          <!-- Page 17: LIFE OF ESCROW TABLE -->
+          <div class="page-side front">
+            <h2 class="page-title" style="font-size: 1.8rem; margin-bottom: 0.1rem;">
+              <span class="lang-en">Life of An Escrow</span>
+              <span class="lang-es">Ciclo de la Garantía</span>
+            </h2>
+            <div class="page-subtitle-guide" style="margin-bottom: 0.4rem;">
+              <span class="lang-en">Escrow Responsibilities Breakdown</span>
+              <span class="lang-es">Roles y Tareas en el Depósito</span>
+            </div>
+            <div class="gold-divider" style="margin-bottom: 0.4rem;"></div>
+            
+            <div class="escrow-table-container">
+              <table class="escrow-table">
+                <thead>
+                  <tr>
+                    <th>
+                      <span class="lang-en">Buyer & Agent</span>
+                      <span class="lang-es">Comprador + Agente</span>
+                    </th>
+                    <th>
+                      <span class="lang-en">Seller & Agent</span>
+                      <span class="lang-es">Vendedor + Agente</span>
+                    </th>
+                    <th>
+                      <span class="lang-en">Escrow & Title</span>
+                      <span class="lang-es">Garantía y Título</span>
+                    </th>
+                    <th>
+                      <span class="lang-en">Lender</span>
+                      <span class="lang-es">Prestamista</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <!-- Buyer -->
+                    <td>
+                      <ul>
+                        <li class="lang-en">Select Advisor & get loan pre-approval.</li>
+                        <li class="lang-es">Elige Asesor y obtiene pre-aprobación.</li>
+                        <li class="lang-en">Submit offer, open escrow, wire earnest deposit.</li>
+                        <li class="lang-es">Presenta oferta, abre depósito y envía garantía.</li>
+                        <li class="lang-en">Sign closing disclosures & wire final funds.</li>
+                        <li class="lang-es">Firma documentos finales y envía saldo.</li>
+                      </ul>
+                    </td>
+                    <!-- Seller -->
+                    <td>
+                      <ul>
+                        <li class="lang-en">Establish price via Market Analysis.</li>
+                        <li class="lang-es">Fija precio con análisis comparativo.</li>
+                        <li class="lang-en">Prep property, take media, coordinate shows.</li>
+                        <li class="lang-es">Prepara casa, toma fotos, hace visitas.</li>
+                        <li class="lang-en">Approve inspections & sign deed transfers.</li>
+                        <li class="lang-es">Aprueba reparaciones y firma traspaso.</li>
+                      </ul>
+                    </td>
+                    <!-- Escrow -->
+                    <td>
+                      <ul>
+                        <li class="lang-en">Order title search & verify liens.</li>
+                        <li class="lang-es">Ordena búsqueda de Título y cargas.</li>
+                        <li class="lang-en">Issue preliminary report & coordinate signing.</li>
+                        <li class="lang-es">Emite reporte inicial y coordina firmas.</li>
+                        <li class="lang-en">Record county deeds & disburse sale funds.</li>
+                        <li class="lang-es">Registra escrituras y reparte fondos.</li>
+                      </ul>
+                    </td>
+                    <!-- Lender -->
+                    <td>
+                      <ul>
+                        <li class="lang-en">Verify credit, employment & assets.</li>
+                        <li class="lang-es">Verifica crédito, empleo y fondos.</li>
+                        <li class="lang-en">Book property appraisal inspection.</li>
+                        <li class="lang-es">Ordena tasación física de propiedad.</li>
+                        <li class="lang-en">Fund mortgage and release loan packet.</li>
+                        <li class="lang-es">Financia la hipoteca y autoriza cierre.</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Page 18: PACK LIKE A PRO -->
+          <div class="page-side back" style="padding: 0;">
+            <div class="page-split">
+              <div class="page-split-img" style="width: 40%; background-image: url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800&q=80');"></div>
+              <div class="page-split-content" style="width: 60%; padding: 1.8rem;">
+                <h2 class="page-title" style="font-size: 1.7rem; margin-bottom: 0.1rem;">
+                  <span class="lang-en">Pack like a Pro</span>
+                  <span class="lang-es">Empaca como Profesional</span>
+                </h2>
+                <div class="page-subtitle-guide" style="margin-bottom: 0.6rem;">
+                  <span class="lang-en">Smart Moving Checklist</span>
+                  <span class="lang-es">Mudanza Inteligente</span>
+                </div>
+                <div class="gold-divider" style="margin-bottom: 0.8rem;"></div>
+                
+                <div class="moving-cols">
+                  <div class="moving-col">
+                    <div class="moving-block">
+                      <h4 class="lang-en">Plan Ahead</h4><h4 class="lang-es">Planifique</h4>
+                      <p class="lang-en">Write a master checklist for moving day chores.</p>
+                      <p class="lang-es">Haga una lista maestra para el día de mudanza.</p>
+                    </div>
+                    <div class="moving-block">
+                      <h4 class="lang-en">De-Clutter</h4><h4 class="lang-es">Descarte</h4>
+                      <p class="lang-en">Donate or discard unused household items.</p>
+                      <p class="lang-es">Deseche o regale lo que ya no utiliza.</p>
+                    </div>
+                    <div class="moving-block">
+                      <h4 class="lang-en">Pack Similar</h4><h4 class="lang-es">Agrupe</h4>
+                      <p class="lang-en">Keep same-room items in unified boxes.</p>
+                      <p class="lang-es">Empaque juntos artículos similares.</p>
+                    </div>
+                  </div>
+                  <div class="moving-col">
+                    <div class="moving-block">
+                      <h4 class="lang-en">Box Limits</h4><h4 class="lang-es">Caja Límite</h4>
+                      <p class="lang-en">Don't overpack boxes to prevent breakage.</p>
+                      <p class="lang-es">No sobrecargue cajas para evitar roturas.</p>
+                    </div>
+                    <div class="moving-block">
+                      <h4 class="lang-en">Label Sides</h4><h4 class="lang-es">Etiquete</h4>
+                      <p class="lang-en">Label box contents clearly on multiple sides.</p>
+                      <p class="lang-es">Escriba el contenido en varios lados.</p>
+                    </div>
+                    <div class="moving-block">
+                      <h4 class="lang-en">Inspect</h4><h4 class="lang-es">Examine</h4>
+                      <p class="lang-en">Verify box conditions upon arrival.</p>
+                      <p class="lang-es">Inspeccione cajas y muebles al llegar.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================
+             LEAF 10 (Page 19 Pet Relocation | Page 20 Checklists)
+             ==================================================== -->
+        <div class="leaf" id="leaf-9">
+          <!-- Page 19: MOVING WITH PETS -->
+          <div class="page-side front" style="padding: 0;">
+            <div class="page-split">
+              <div class="page-split-content" style="width: 55%; padding: 1.8rem;">
+                <h2 class="page-title" style="font-size: 1.6rem; margin-bottom: 0.1rem;">
+                  <span class="lang-en">Moving with Pets</span>
+                  <span class="lang-es">Mudarse con Mascotas</span>
+                </h2>
+                <div class="page-subtitle-guide" style="margin-bottom: 0.6rem;">
+                  <span class="lang-en">Keeping Animals Safe</span>
+                  <span class="lang-es">Cuidado de sus Mascotas</span>
+                </div>
+                <div class="gold-divider" style="margin-bottom: 0.8rem;"></div>
+                
+                <div class="lang-en" style="font-size: 0.82rem; line-height: 1.4;">
+                  <p style="margin-bottom: 0.4rem;"><strong>UPDATE ID TAGS:</strong> Add your new address and phone details immediately.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>VET RECORDS:</strong> Secure digital vet dossiers and certificates before relocating.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>CHAOS CONTROL:</strong> Seclude pets in quiet spaces away from moving day hubbub.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>CAR SECURITY:</strong> Always secure pets inside crates during driving transits.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>PREP FIRST:</strong> Establish a designated pet room at the destination first.</p>
+                  <p style="font-style: italic; color: var(--gold); margin-top: 0.5rem;">*Nick Sadek Sotheby's International Realty's beloved Pets</p>
+                </div>
+                
+                <div class="lang-es" style="font-size: 0.82rem; line-height: 1.4;">
+                  <p style="margin-bottom: 0.4rem;"><strong>ACTUALICE PLACAS:</strong> Escriba su nueva dirección y teléfono en los collares.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>HISTORIAL CLÍNICO:</strong> Solicite copias clínicas a su veterinario habitual.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>EVITE EL ESTRÉS:</strong> Aísle a las mascotas en un cuarto tranquilo al cargar.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>VIAJE SEGURO:</strong> Use transportadoras. No las lleve sueltas ni en cajas abiertas.</p>
+                  <p style="margin-bottom: 0.4rem;"><strong>CASA NUEVA:</strong> Acondicione primero una habitación con sus platos y juguetes.</p>
+                  <p style="font-style: italic; color: var(--gold); margin-top: 0.5rem;">*Las queridas mascotas de Nick Sadek Sotheby's International Realty</p>
+                </div>
+              </div>
+              <div class="page-split-img" style="width: 45%; background-image: url('https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80');"></div>
+            </div>
+          </div>
+          <!-- Page 20: PREPARING TO BUY FORM & MORTGAGE LOAN CHECKLIST -->
+          <div class="page-side back" style="padding: 0;">
+            <div class="form-checklist-container">
+              <!-- Left side: Interactive form fields -->
+              <div class="form-section">
+                <h3>
+                  <span class="lang-en">Preparing to Buy</span>
+                  <span class="lang-es">Preparación</span>
+                </h3>
+                <form onsubmit="event.preventDefault();">
+                  <div class="form-group">
+                    <label>
+                      <span class="lang-en">Target Areas</span>
+                      <span class="lang-es">Áreas de Interés</span>
+                    </label>
+                    <input type="text" placeholder="e.g. Sacramento, Roseville" data-en="e.g. Sacramento, Roseville" data-es="ej. Sacramento, Roseville">
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      <span class="lang-en">Preferred Neighborhoods</span>
+                      <span class="lang-es">Vecindarios de Preferencia</span>
+                    </label>
+                    <input type="text">
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      <span class="lang-en">Price Range</span>
+                      <span class="lang-es">Rango de Precio</span>
+                    </label>
+                    <input type="text">
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      <span class="lang-en">Homeowners Association (HOA)?</span>
+                      <span class="lang-es">¿Asociación de Propietarios (HOA)?</span>
+                    </label>
+                    <div class="form-inline-choices">
+                      <label><input type="radio" name="hoa"> <span class="lang-en">Yes</span><span class="lang-es">Sí</span></label>
+                      <label><input type="radio" name="hoa"> <span class="lang-en">No</span><span class="lang-es">No</span></label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      <span class="lang-en">Have a Lender / Pre-Approved?</span>
+                      <span class="lang-es">¿Tiene Prestamista / Pre-Aprobado?</span>
+                    </label>
+                    <div class="form-inline-choices">
+                      <label><input type="checkbox"> <span class="lang-en">Lender</span><span class="lang-es">Prestamista</span></label>
+                      <label><input type="checkbox"> <span class="lang-en">Pre-Approved</span><span class="lang-es">Pre-Aprobado</span></label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      <span class="lang-en">Need to Sell Current Home?</span>
+                      <span class="lang-es">¿Necesita Vender Residencia Actual?</span>
+                    </label>
+                    <div class="form-inline-choices">
+                      <label><input type="radio" name="sell"> <span class="lang-en">Yes</span><span class="lang-es">Sí</span></label>
+                      <label><input type="radio" name="sell"> <span class="lang-en">No</span><span class="lang-es">No</span></label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              
+              <!-- Right side: Mortgage Checklist -->
+              <div class="checklist-section">
+                <h3>
+                  <span class="lang-en">Mortgage Checklist</span>
+                  <span class="lang-es">Lista de Requisitos</span>
+                </h3>
+                
+                <div class="checklist-category">
+                  <span class="lang-en">Contracts</span>
+                  <span class="lang-es">Contratos</span>
+                </div>
+                <div class="checklist-item">
+                  <input type="checkbox">
+                  <span>
+                    <span class="lang-en">Copy of Sales Contract & Closing Statement</span>
+                    <span class="lang-es">Copia de Contrato y Declaración de Cierre</span>
+                  </span>
+                </div>
+
+                <div class="checklist-category">
+                  <span class="lang-en">Residence & Jobs</span>
+                  <span class="lang-es">Residencia y Empleos</span>
+                </div>
+                <div class="checklist-item">
+                  <input type="checkbox">
+                  <span>
+                    <span class="lang-en">24 Months Residence History & Addresses</span>
+                    <span class="lang-es">Historial y Direcciones de 24 Meses</span>
+                  </span>
+                </div>
+                <div class="checklist-item">
+                  <input type="checkbox">
+                  <span>
+                    <span class="lang-en">Two Years of W2 Forms & Tax Returns</span>
+                    <span class="lang-es">W2 e Impuestos de los Últimos 2 Años</span>
+                  </span>
+                </div>
+                
+                <div class="checklist-category">
+                  <span class="lang-en">Financial Assets</span>
+                  <span class="lang-es">Activos Financieros</span>
+                </div>
+                <div class="checklist-item">
+                  <input type="checkbox">
+                  <span>
+                    <span class="lang-en">3 Months Bank Statements (All Accounts)</span>
+                    <span class="lang-es">Estados Bancarios de 3 Meses</span>
+                  </span>
+                </div>
+                <div class="checklist-item">
+                  <input type="checkbox">
+                  <span>
+                    <span class="lang-en">Property addresses & loan balances owned</span>
+                    <span class="lang-es">Direcciones e hipotecas de bienes raíces</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================
+             LEAF 11 (Page 21 Back Cover | Page 22 Thank You)
+             ==================================================== -->
+        <div class="leaf" id="leaf-10">
+          <!-- Page 21: BACK COVER -->
+          <div class="page-side front cover-style">
+            <div class="cover-bg" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="cover-overlay">
+              <div class="cover-brand-header">
+                Nick Sadek | Sotheby's International Realty
+              </div>
+              <div class="cover-main-content">
+                <h2 class="back-cover-tagline">
+                  <span class="lang-en">"Where Service Matters as Much as the Home."</span>
+                  <span class="lang-es">"Donde el Servicio Importa Tanto como el Hogar."</span>
+                </h2>
+              </div>
+              <div class="back-cover-footer">
+                <div class="back-cover-disclaimer">
+                  Nick Sadek Sotheby's International Realty DRE#01492283.<br>
+                  Each Office is Independently Owned and Operated.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Page 22: THANK YOU -->
+          <div class="page-side back">
+            <h2 class="page-title">
+              <span class="lang-en">Thank You</span>
+              <span class="lang-es">Gracias</span>
+            </h2>
+            <div class="page-subtitle-guide">
+              <span class="lang-en">Trust Builds Lasting Relationships</span>
+              <span class="lang-es">La Confianza Construye Relaciones</span>
+            </div>
+            <div class="gold-divider" style="margin-bottom: 0.6rem;"></div>
+            
+            <div class="lang-en" style="font-size: 0.88rem; line-height: 1.45;">
+              <p style="margin-bottom: 0.5rem;">Thank you again for this opportunity to share our qualifications. We would love to work with you and show you why we've earned the trust of so many clients. Trust, of course, is all about comfort. It's about feeling at home. And that's exactly how we want you to feel throughout the journey to your new one.</p>
+            </div>
+            <div class="lang-es" style="font-size: 0.88rem; line-height: 1.45;">
+              <p style="margin-bottom: 0.5rem;">Gracias nuevamente por esta oportunidad de compartir nuestras calificaciones. Nos encantaría trabajar con usted y mostrarle por qué nos hemos ganado la confianza de tantos clientes. La confianza, por supuesto, se trata de comodidad. Se trata de sentirse en casa. Y así es exactamente como queremos que se sienta a lo largo de su viaje.</p>
+            </div>
+
+            <ul class="thankyou-list">
+              <li class="lang-en">One of the world's most trusted brands</li>
+              <li class="lang-es">Una de las marcas más confiables del mundo</li>
+              <li class="lang-en">Known for unsurpassed service</li>
+              <li class="lang-es">Conocida por su servicio sin igual</li>
+              <li class="lang-en">True global reach network</li>
+              <li class="lang-es">Alcance global real</li>
+              <li class="lang-en">Experienced agents with local insights</li>
+              <li class="lang-es">Agentes con conocimiento local y global</li>
+              <li class="lang-en">Highly qualified global clientele</li>
+              <li class="lang-es">Acceso a clientela global calificada</li>
+              <li class="lang-en">Award-winning website exposure</li>
+              <li class="lang-es">Sitio web galardonado y visibilidad</li>
+              <li class="lang-en">Exclusive media partner relationships</li>
+              <li class="lang-es">Relaciones exclusivas con medios</li>
+              <li class="lang-en">Most viewed real estate YouTube channel</li>
+              <li class="lang-es">Canal inmobiliario más visto en YouTube</li>
+              <li class="lang-en">Engaged global social followers</li>
+              <li class="lang-es">Seguidores sociales comprometidos</li>
+              <li class="lang-en">Customized local marketing plan</li>
+              <li class="lang-es">Plan de marketing personalizado</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+              
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Right Navigation Arrow Button (Desktop only, hidden on mobile) -->
+        <button class="guide-nav-btn" id="guide-next-btn-float" aria-label="Next Page">→</button>
+      </div>
+
+      <!-- Viewer controls panel below the book -->
+      <div class="guide-controls-container">
+        <!-- Prev Button (Visible on mobile/fallback) -->
+        <button class="guide-nav-btn" id="guide-prev-btn" aria-label="Previous Page">←</button>
+        <div class="guide-counter-display" id="guide-page-counter">Page 1 of 22</div>
+        <!-- Next Button (Visible on mobile/fallback) -->
+        <button class="guide-nav-btn" id="guide-next-btn" aria-label="Next Page">→</button>
+      </div>
+    </div>
+  </section>
+
 
   <!-- SERVICES SECTION -->
   <section id="services" class="reveal-section">
@@ -1994,7 +4102,6 @@
         <a href="#about" class="footer-link" data-en="About Me" data-es="Sobre Mí">About Me</a>
         <a href="#services" class="footer-link" data-en="Services" data-es="Servicios">Services</a>
         <a href="#areas" class="footer-link" data-en="Areas Served" data-es="Áreas Servidas">Areas Served</a>
-        <a href="buyers-guide.html" class="footer-link" data-en="Buyers Guide" data-es="Guía del Comprador">Buyers Guide</a>
         <a href="#contact" class="footer-link" data-en="Contact" data-es="Contacto">Contact</a>
       </div>
 
@@ -2258,6 +4365,218 @@
       }, 1000); // Elegant 1s reveal delay
     });
 
+
+    // ====================================================
+    // BUYERS GUIDE SECTION INTERACTIVE SCRIPTS
+    // ====================================================
+    let guideCurrentPage = 1;
+    let guideLastPage = 1;
+    let guideTouchStartX = 0;
+    let guideTouchEndX = 0;
+
+    function updateGuidePageCounter() {
+      const counterEl = document.getElementById('guide-page-counter');
+      if (!counterEl) return;
+      const currentLang = localStorage.getItem('preferredLanguage') || 'en';
+      const isEs = currentLang === 'es';
+      const prevBtn = document.getElementById('guide-prev-btn');
+      const nextBtn = document.getElementById('guide-next-btn');
+      const prevBtnFloat = document.getElementById('guide-prev-btn-float');
+      const nextBtnFloat = document.getElementById('guide-next-btn-float');
+
+      const isMobile = window.innerWidth < 768;
+
+      if (isMobile) {
+        if (guideCurrentPage === 1) {
+          counterEl.textContent = isEs ? "Portada (Pág. 1 de 22)" : "Cover (Page 1 of 22)";
+        } else {
+          counterEl.textContent = isEs ? `Página ${guideCurrentPage} de 22` : `Page ${guideCurrentPage} of 22`;
+        }
+      } else {
+        if (guideCurrentPage === 1) {
+          counterEl.textContent = isEs ? "Portada (Pág. 1 de 22)" : "Cover (Page 1 of 22)";
+        } else if (guideCurrentPage === 22) {
+          counterEl.textContent = isEs ? "Página 22 de 22" : "Page 22 of 22";
+        } else {
+          const spread = Math.floor(guideCurrentPage / 2);
+          const pLeft = spread * 2;
+          const pRight = pLeft + 1;
+          counterEl.textContent = isEs ? `Páginas ${pLeft}-${pRight} de 22` : `Pages ${pLeft}-${pRight} of 22`;
+        }
+      }
+
+      if (prevBtn) prevBtn.disabled = (guideCurrentPage === 1);
+      if (nextBtn) nextBtn.disabled = (guideCurrentPage === 22);
+      if (prevBtnFloat) prevBtnFloat.disabled = (guideCurrentPage === 1);
+      if (nextBtnFloat) nextBtnFloat.disabled = (guideCurrentPage === 22);
+    }
+
+    function updateGuideBook() {
+      const leaves = document.querySelectorAll('#buyers-guide .leaf');
+      const isMobile = window.innerWidth < 768;
+      
+      let flippingLeafIdx = -1;
+      const oldSpread = Math.floor(guideLastPage / 2);
+      const newSpread = Math.floor(guideCurrentPage / 2);
+      if (oldSpread !== newSpread) {
+        flippingLeafIdx = newSpread > oldSpread ? oldSpread : newSpread;
+      }
+      
+      guideLastPage = guideCurrentPage;
+
+      if (isMobile) {
+        const activeLeafIdx = Math.floor((guideCurrentPage - 1) / 2);
+        const isBack = (guideCurrentPage % 2 === 0);
+
+        leaves.forEach((leaf, idx) => {
+          leaf.style.transition = 'transform 0.6s ease-in-out';
+          if (idx === activeLeafIdx) {
+            leaf.style.display = 'block';
+            leaf.style.zIndex = '10';
+            if (isBack) {
+              leaf.classList.add('flipped');
+            } else {
+              leaf.classList.remove('flipped');
+            }
+          } else {
+            leaf.style.display = 'none';
+            leaf.style.zIndex = '1';
+            if (idx < activeLeafIdx) {
+              leaf.classList.add('flipped');
+            } else {
+              leaf.classList.remove('flipped');
+            }
+          }
+        });
+      } else {
+        const currentSpread = Math.floor(guideCurrentPage / 2);
+
+        leaves.forEach((leaf, idx) => {
+          leaf.style.display = 'block';
+          
+          if (idx === flippingLeafIdx) {
+            leaf.classList.add('flipping');
+            leaf.style.zIndex = '100';
+            leaf.style.transition = 'transform 0.6s ease-in-out';
+            
+            if (idx < currentSpread) {
+              leaf.classList.add('flipped');
+            } else {
+              leaf.classList.remove('flipped');
+            }
+            
+            setTimeout(() => {
+              leaf.classList.remove('flipping');
+              if (idx < currentSpread) {
+                leaf.style.zIndex = idx;
+              } else {
+                leaf.style.zIndex = leaves.length - idx;
+              }
+            }, 600);
+          } else {
+            leaf.style.transition = 'transform 0.6s ease-in-out';
+            leaf.classList.remove('flipping');
+            
+            if (idx < currentSpread) {
+              leaf.classList.add('flipped');
+              leaf.style.zIndex = idx;
+            } else {
+              leaf.classList.remove('flipped');
+              leaf.style.zIndex = leaves.length - idx;
+            }
+          }
+        });
+      }
+
+      updateGuidePageCounter();
+    }
+
+    function guideNextPage() {
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) {
+        if (guideCurrentPage < 22) {
+          guideCurrentPage++;
+          updateGuideBook();
+        }
+      } else {
+        if (guideCurrentPage === 1) {
+          guideCurrentPage = 3;
+        } else if (guideCurrentPage < 20) {
+          guideCurrentPage += 2;
+        } else if (guideCurrentPage < 22) {
+          guideCurrentPage = 22;
+        }
+        updateGuideBook();
+      }
+    }
+
+    function guidePrevPage() {
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) {
+        if (guideCurrentPage > 1) {
+          guideCurrentPage--;
+          updateGuideBook();
+        }
+      } else {
+        if (guideCurrentPage === 22) {
+          guideCurrentPage = 21;
+        } else if (guideCurrentPage > 3) {
+          guideCurrentPage -= 2;
+        } else if (guideCurrentPage > 1) {
+          guideCurrentPage = 1;
+        }
+        updateGuideBook();
+      }
+    }
+
+    function handleGuideSwipe() {
+      const diffX = guideTouchEndX - guideTouchStartX;
+      if (Math.abs(diffX) > 60) {
+        if (diffX < 0) {
+          guideNextPage();
+        } else {
+          guidePrevPage();
+        }
+      }
+    }
+
+    function setupGuideListeners() {
+      const bookViewport = document.getElementById('guide-book-viewport');
+      const prevBtn = document.getElementById('guide-prev-btn');
+      const nextBtn = document.getElementById('guide-next-btn');
+      const prevBtnFloat = document.getElementById('guide-prev-btn-float');
+      const nextBtnFloat = document.getElementById('guide-next-btn-float');
+
+      if (prevBtn) prevBtn.addEventListener('click', guidePrevPage);
+      if (nextBtn) nextBtn.addEventListener('click', guideNextPage);
+      if (prevBtnFloat) prevBtnFloat.addEventListener('click', guidePrevPage);
+      if (nextBtnFloat) nextBtnFloat.addEventListener('click', guideNextPage);
+
+      window.addEventListener('keydown', e => {
+        const guideSection = document.getElementById('buyers-guide');
+        if (guideSection) {
+          const rect = guideSection.getBoundingClientRect();
+          const inViewport = (rect.top < window.innerHeight && rect.bottom >= 0);
+          if (inViewport) {
+            if (e.key === 'ArrowRight') guideNextPage();
+            if (e.key === 'ArrowLeft') guidePrevPage();
+          }
+        }
+      });
+
+      if (bookViewport) {
+        bookViewport.addEventListener('touchstart', e => {
+          guideTouchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        bookViewport.addEventListener('touchend', e => {
+          guideTouchEndX = e.changedTouches[0].screenX;
+          handleGuideSwipe();
+        }, { passive: true });
+      }
+    }
+
+
     // 5. LANGUAGE TRANSLATION SWITCHER
     function setLanguage(lang) {
       localStorage.setItem('preferredLanguage', lang);
@@ -2282,6 +4601,15 @@
           el.innerHTML = text;
         }
       });
+
+      // Set body language class for CSS display overrides
+      document.body.classList.remove('lang-en', 'lang-es');
+      document.body.classList.add(`lang-${lang}`);
+
+      // Refresh flipbook language details
+      if (typeof updateGuidePageCounter === 'function') {
+        updateGuidePageCounter();
+      }
     }
 
     // Set initial language and event listeners on DOMContentLoaded
@@ -2296,6 +4624,12 @@
           setLanguage(lang);
         });
       });
+
+      // Initialize Buyers Guide listeners and view
+      if (typeof setupGuideListeners === 'function') {
+        setupGuideListeners();
+        updateGuideBook();
+      }
     });
   </script>
 
