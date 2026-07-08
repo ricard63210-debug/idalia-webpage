@@ -247,8 +247,8 @@
       -webkit-backface-visibility: hidden;
       background-color: var(--page-bg);
       box-shadow: inset var(--center-fold-shadow);
-      padding: 2.5rem;
-      overflow-y: auto;
+      padding: 2rem;
+      overflow: hidden;
       border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
@@ -344,9 +344,9 @@
     /* Core typography inside normal pages */
     .page-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 2rem;
       color: var(--navy);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.2rem;
       font-weight: 500;
       line-height: 1.2;
     }
@@ -354,24 +354,24 @@
     .page-subtitle-guide {
       font-family: 'Playfair Display', serif;
       color: var(--gold);
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-style: italic;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
 
     .gold-divider {
       width: 60px;
       height: 2px;
       background-color: var(--gold);
-      margin: 0.8rem 0 1.2rem 0;
+      margin: 0.6rem 0 0.8rem 0;
     }
 
     .p-body {
       font-family: 'EB Garamond', serif;
-      font-size: 1.15rem;
-      line-height: 1.6;
+      font-size: 1.05rem;
+      line-height: 1.55;
       color: var(--text-dark);
-      margin-bottom: 1.2rem;
+      margin-bottom: 0.8rem;
       text-align: justify;
     }
 
@@ -379,7 +379,7 @@
     .page-split {
       display: flex;
       height: 100%;
-      margin: -2.5rem;
+      margin: -2rem;
     }
 
     .page-split-img {
@@ -398,11 +398,11 @@
 
     .page-split-content {
       width: 50%;
-      padding: 2.5rem;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      overflow-y: auto;
+      overflow: hidden;
     }
 
     /* Double Image for Offer Details */
@@ -467,8 +467,8 @@
     .stats-container {
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
-      margin-top: 1rem;
+      gap: 1rem;
+      margin-top: 0.8rem;
     }
 
     .stat-row {
@@ -480,16 +480,16 @@
 
     .stat-number {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 2rem;
       color: var(--navy);
       font-weight: bold;
       line-height: 1;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.15rem;
     }
 
     .stat-desc {
       font-family: 'EB Garamond', serif;
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       color: var(--text-dark);
       font-weight: 500;
     }
@@ -498,14 +498,14 @@
     .advantages-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem;
-      margin-top: 1rem;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
     }
 
     .advantage-card {
       border: 1px solid var(--border-color);
       background: #FFF;
-      padding: 0.8rem;
+      padding: 0.6rem;
       border-radius: 6px;
       transition: all 0.3s ease;
       box-shadow: 0 2px 5px rgba(0,0,0,0.02);
@@ -519,12 +519,12 @@
 
     .advantage-card h4 {
       font-family: 'Playfair Display', serif;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       color: var(--navy);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.2rem;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.3rem;
     }
 
     .advantage-card h4 span {
@@ -534,9 +534,9 @@
 
     .advantage-card p {
       font-family: 'EB Garamond', serif;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.35;
       text-align: justify;
     }
 
@@ -680,27 +680,27 @@
     .essentials-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem;
-      margin-top: 1rem;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
     }
 
     .essential-block {
       border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.4rem;
     }
 
     .essential-block h4 {
       font-family: 'Playfair Display', serif;
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--navy);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.15rem;
     }
 
     .essential-block p {
       font-family: 'EB Garamond', serif;
-      font-size: 0.85rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.35;
       text-align: justify;
     }
 
@@ -715,7 +715,7 @@
     .escrow-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.72rem;
+      font-size: 0.64rem;
       line-height: 1.35;
     }
 
@@ -724,14 +724,14 @@
       color: var(--gold-light);
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      padding: 0.6rem 0.5rem;
+      padding: 0.5rem 0.4rem;
       border: 1px solid var(--navy-dark);
       text-align: left;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
     }
 
     .escrow-table td {
-      padding: 0.5rem;
+      padding: 0.4rem;
       border: 1px solid var(--border-color);
       vertical-align: top;
       color: var(--text-dark);
@@ -748,9 +748,9 @@
     }
 
     .escrow-table li {
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.2rem;
       position: relative;
-      padding-left: 0.5rem;
+      padding-left: 0.4rem;
     }
 
     .escrow-table li::before {
@@ -763,8 +763,8 @@
     /* Columns for moving checklist */
     .moving-cols {
       display: flex;
-      gap: 1.5rem;
-      margin-top: 1rem;
+      gap: 1rem;
+      margin-top: 0.6rem;
     }
 
     .moving-col {
@@ -772,23 +772,23 @@
     }
 
     .moving-block {
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.5rem;
     }
 
     .moving-block h4 {
       font-family: 'Playfair Display', serif;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       color: var(--navy);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.15rem;
       border-bottom: 1px solid rgba(184, 150, 12, 0.3);
-      padding-bottom: 0.1rem;
+      padding-bottom: 0.05rem;
     }
 
     .moving-block p {
       font-family: 'EB Garamond', serif;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       color: var(--text-dark);
-      line-height: 1.4;
+      line-height: 1.35;
       text-align: justify;
     }
 
@@ -796,52 +796,52 @@
     .form-checklist-container {
       display: flex;
       height: 100%;
-      margin: -2.5rem;
+      margin: -2rem;
     }
 
     .form-section {
       width: 50%;
-      padding: 2.2rem;
+      padding: 1.5rem 1.8rem;
       border-right: 1px solid var(--border-color);
-      overflow-y: auto;
+      overflow: hidden;
     }
 
     .checklist-section {
       width: 50%;
-      padding: 2.2rem;
-      overflow-y: auto;
+      padding: 1.5rem 1.8rem;
+      overflow: hidden;
     }
 
     .form-section h3, .checklist-section h3 {
       font-family: 'Playfair Display', serif;
       color: var(--navy);
       font-size: 1.25rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       border-bottom: 2px solid var(--gold);
       padding-bottom: 0.3rem;
     }
 
     .form-group {
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
     }
 
     .form-group label {
       display: block;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-family: 'Inter', sans-serif;
       font-weight: 600;
       color: var(--text-dark);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.15rem;
     }
 
     .form-group input[type="text"], 
     .form-group textarea, 
     .form-group select {
       width: 100%;
-      padding: 0.45rem;
+      padding: 0.35rem 0.4rem;
       border: 1px solid var(--border-color);
       border-radius: 4px;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-family: inherit;
     }
 
@@ -865,18 +865,18 @@
       font-family: 'Inter', sans-serif;
       font-weight: bold;
       color: var(--gold);
-      font-size: 0.75rem;
-      margin: 1rem 0 0.5rem 0;
+      font-size: 0.7rem;
+      margin: 0.6rem 0 0.3rem 0;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
 
     .checklist-item {
       display: flex;
-      gap: 0.5rem;
-      margin-bottom: 0.45rem;
-      font-size: 0.78rem;
-      line-height: 1.4;
+      gap: 0.4rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.7rem;
+      line-height: 1.35;
       color: var(--text-dark);
     }
 
@@ -888,17 +888,17 @@
 
     /* Page 22 final values checklist */
     .thankyou-list {
-      margin-top: 1rem;
+      margin-top: 0.6rem;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.6rem;
+      gap: 0.4rem;
     }
 
     .thankyou-list li {
       font-family: 'EB Garamond', serif;
-      font-size: 0.95rem;
-      line-height: 1.35;
-      padding-left: 1rem;
+      font-size: 0.8rem;
+      line-height: 1.3;
+      padding-left: 0.8rem;
       position: relative;
     }
 
@@ -995,91 +995,6 @@
       .viewport-container {
         padding-top: 75px;
         padding-bottom: 75px;
-      }
-      .book-container {
-        width: 90vw;
-        height: calc(100vh - 160px);
-        max-width: 480px;
-      }
-      .book {
-        box-shadow: none;
-      }
-      .spine-overlay {
-        display: none; /* remove spine on single page */
-      }
-      .leaf {
-        width: 100%;
-        left: 0;
-        transform-origin: center center; /* in-place card flip origin */
-      }
-      .page-side {
-        padding: 1.5rem;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-      }
-      .page-side.front {
-        border-radius: 8px;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-      }
-      .page-side.back {
-        border-radius: 8px;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-      }
-      .page-split {
-        flex-direction: column;
-        margin: -1.5rem;
-        height: auto;
-      }
-      .page-split-img {
-        width: 100%;
-        height: 200px;
-      }
-      .page-split-content {
-        width: 100%;
-        padding: 1.5rem;
-      }
-      .cover-overlay {
-        padding: 1.5rem 1rem;
-      }
-      .cover-title {
-        font-size: 1.8rem;
-      }
-      .page-title {
-        font-size: 1.6rem;
-      }
-      .advantages-grid, .essentials-container, .moving-cols, .form-checklist-container, .thankyou-list {
-        grid-template-columns: 1fr !important;
-        flex-direction: column !important;
-        gap: 1rem;
-      }
-      .form-section, .checklist-section {
-        width: 100% !important;
-        border-right: none !important;
-        padding: 1.5rem !important;
-      }
-      .moving-col {
-        width: 100% !important;
-      }
-      .timeline-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.2rem;
-        margin-bottom: 1.5rem;
-      }
-      .timeline-row::before {
-        display: none;
-      }
-      .timeline-step {
-        width: 100% !important;
-        flex-direction: row;
-        text-align: left;
-        gap: 1rem;
-      }
-      .step-number {
-        margin-bottom: 0;
-      }
-      .escrow-table th, .escrow-table td {
-        font-size: 0.65rem;
-        padding: 0.3rem;
       }
       .guide-footer {
         height: 55px;
@@ -1380,7 +1295,7 @@
           <!-- Page 7: ADVISORY FEES -->
           <div class="page-side front" style="padding: 0;">
             <div class="page-split">
-              <div class="page-split-content" style="width: 55%; padding: 2.2rem;">
+              <div class="page-split-content" style="width: 55%; padding: 1.8rem;">
                 <h2 class="page-title" style="font-size: 1.8rem;">
                   <span class="lang-en">Advisory Fees</span>
                   <span class="lang-es">Honorarios de Asesoría</span>
@@ -1552,7 +1467,7 @@
           <div class="page-side back" style="padding: 0;">
             <div class="page-split">
               <div class="page-split-img" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80');"></div>
-              <div class="page-split-content" style="padding: 2.2rem;">
+              <div class="page-split-content" style="padding: 1.8rem;">
                 <h2 class="page-title" style="font-size: 1.8rem;">
                   <span class="lang-en">Financial Prep</span>
                   <span class="lang-es">Preparación Financiera</span>
@@ -1744,7 +1659,7 @@
           <div class="page-side back" style="padding: 0;">
             <div class="page-split">
               <div class="page-split-img" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80');"></div>
-              <div class="page-split-content" style="padding: 2.2rem;">
+              <div class="page-split-content" style="padding: 1.8rem;">
                 <h2 class="page-title" style="font-size: 1.8rem;">
                   <span class="lang-en">Closing Protocol</span>
                   <span class="lang-es">Protocolo de Cierre</span>
@@ -1782,7 +1697,7 @@
           <!-- Page 15: CLOSING THE DEAL -->
           <div class="page-side front" style="padding: 0;">
             <div class="page-split">
-              <div class="page-split-content" style="width: 55%; padding: 2rem;">
+              <div class="page-split-content" style="width: 55%; padding: 1.8rem;">
                 <h2 class="page-title" style="font-size: 1.7rem; margin-bottom: 0.1rem;">
                   <span class="lang-en">Closing the Deal</span>
                   <span class="lang-es">Cerrando el Trato</span>
@@ -1916,7 +1831,7 @@
           <div class="page-side back" style="padding: 0;">
             <div class="page-split">
               <div class="page-split-img" style="width: 40%; background-image: url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800&q=80');"></div>
-              <div class="page-split-content" style="width: 60%; padding: 2.2rem;">
+              <div class="page-split-content" style="width: 60%; padding: 1.8rem;">
                 <h2 class="page-title" style="font-size: 1.7rem; margin-bottom: 0.1rem;">
                   <span class="lang-en">Pack like a Pro</span>
                   <span class="lang-es">Empaca como Profesional</span>
@@ -1975,7 +1890,7 @@
           <!-- Page 19: MOVING WITH PETS -->
           <div class="page-side front" style="padding: 0;">
             <div class="page-split">
-              <div class="page-split-content" style="width: 55%; padding: 2.2rem;">
+              <div class="page-split-content" style="width: 55%; padding: 1.8rem;">
                 <h2 class="page-title" style="font-size: 1.6rem; margin-bottom: 0.1rem;">
                   <span class="lang-en">Moving with Pets</span>
                   <span class="lang-es">Mudarse con Mascotas</span>
@@ -2266,27 +2181,21 @@
 
     // Page count labels generator
     function updatePageCounter() {
-      const isMobile = window.innerWidth < 768;
       const counterEl = document.getElementById('page-counter');
       const isEs = currentLang === 'es';
       
-      if (isMobile) {
-        const text = isEs ? `Página ${currentPage} de 22` : `Page ${currentPage} of 22`;
+      if (currentPage === 1) {
+        const text = isEs ? `Portada (Pág. 1 de 22)` : `Cover (Page 1 of 22)`;
+        counterEl.textContent = text;
+      } else if (currentPage === 22) {
+        const text = isEs ? `Página 22 de 22` : `Page 22 of 22`;
         counterEl.textContent = text;
       } else {
-        if (currentPage === 1) {
-          const text = isEs ? `Portada (Pág. 1 de 22)` : `Cover (Page 1 of 22)`;
-          counterEl.textContent = text;
-        } else if (currentPage === 22) {
-          const text = isEs ? `Página 22 de 22` : `Page 22 of 22`;
-          counterEl.textContent = text;
-        } else {
-          const currentSpread = Math.floor(currentPage / 2);
-          const leftPage = currentSpread * 2;
-          const rightPage = leftPage + 1;
-          const text = isEs ? `Páginas ${leftPage}-${rightPage} de 22` : `Pages ${leftPage}-${rightPage} of 22`;
-          counterEl.textContent = text;
-        }
+        const currentSpread = Math.floor(currentPage / 2);
+        const leftPage = currentSpread * 2;
+        const rightPage = leftPage + 1;
+        const text = isEs ? `Páginas ${leftPage}-${rightPage} de 22` : `Pages ${leftPage}-${rightPage} of 22`;
+        counterEl.textContent = text;
       }
 
       // Handle disabled states
@@ -2294,132 +2203,110 @@
       nextBtn.disabled = (currentPage === 22);
     }
 
+    // Auto-scale Book Viewport function
+    function scaleBook() {
+      const container = document.querySelector('.book-container');
+      if (!container) return;
+      
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      
+      // Subtract header (70px), footer (60px), and margins (30px total) = 160px
+      const availableWidth = viewportWidth * 0.95;
+      const availableHeight = viewportHeight - 160;
+      
+      const scaleX = availableWidth / 1000;
+      const scaleY = availableHeight / 650;
+      
+      let scale = Math.min(scaleX, scaleY);
+      
+      // Cap at 1.0 on large viewports so it doesn't upscale and get blurry
+      if (scale > 1) {
+        scale = 1;
+      }
+      
+      container.style.transform = `scale(${scale})`;
+    }
+
     // 3D Flip Mechanics
     function updateBook() {
-      const isMobile = window.innerWidth < 768;
       const leaves = document.querySelectorAll('.leaf');
       
-      // Detect the leaf index undergoing changes on desktop
+      // Detect the leaf index undergoing changes
       let flippingLeafIdx = -1;
-      if (!isMobile) {
-        const oldSpread = Math.floor(lastPage / 2);
-        const newSpread = Math.floor(currentPage / 2);
-        if (oldSpread !== newSpread) {
-          flippingLeafIdx = newSpread > oldSpread ? oldSpread : newSpread;
-        }
+      const oldSpread = Math.floor(lastPage / 2);
+      const newSpread = Math.floor(currentPage / 2);
+      if (oldSpread !== newSpread) {
+        flippingLeafIdx = newSpread > oldSpread ? oldSpread : newSpread;
       }
       
       lastPage = currentPage;
       
-      if (isMobile) {
-        // Mobile Single Page in-place Card Flip
-        const leafIdx = Math.floor((currentPage - 1) / 2);
-        const isBack = (currentPage % 2 === 0);
+      const currentSpread = Math.floor(currentPage / 2);
+      
+      leaves.forEach((leaf, idx) => {
+        // ensure displayed block
+        leaf.style.display = 'block';
         
-        leaves.forEach((leaf, idx) => {
-          leaf.style.transition = 'transform 0.6s ease';
+        if (idx === flippingLeafIdx) {
+          leaf.classList.add('flipping');
+          leaf.style.zIndex = '100'; // always display transitioning on top
+          leaf.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
           
-          if (idx === leafIdx) {
-            leaf.style.display = 'block';
-            leaf.style.zIndex = '10';
-            if (isBack) {
-              leaf.classList.add('flipped');
-            } else {
-              leaf.classList.remove('flipped');
-            }
+          if (idx < currentSpread) {
+            leaf.classList.add('flipped');
           } else {
-            leaf.style.display = 'none';
-            leaf.style.zIndex = '1';
-            if (idx < leafIdx) {
-              leaf.classList.add('flipped');
-            } else {
-              leaf.classList.remove('flipped');
-            }
+            leaf.classList.remove('flipped');
           }
-        });
-      } else {
-        // Desktop Spread View Page Turn animation
-        const currentSpread = Math.floor(currentPage / 2);
-        
-        leaves.forEach((leaf, idx) => {
-          // ensure displayed block
-          leaf.style.display = 'block';
           
-          if (idx === flippingLeafIdx) {
-            leaf.classList.add('flipping');
-            leaf.style.zIndex = '100'; // always display transitioning on top
-            leaf.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
-            
-            if (idx < currentSpread) {
-              leaf.classList.add('flipped');
-            } else {
-              leaf.classList.remove('flipped');
-            }
-            
-            // Clean up z-index after flip completes
-            setTimeout(() => {
-              leaf.classList.remove('flipping');
-              if (idx < currentSpread) {
-                leaf.style.zIndex = idx;
-              } else {
-                leaf.style.zIndex = leaves.length - idx;
-              }
-            }, 800);
-          } else {
-            leaf.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+          // Clean up z-index after flip completes
+          setTimeout(() => {
             leaf.classList.remove('flipping');
-            
             if (idx < currentSpread) {
-              leaf.classList.add('flipped');
               leaf.style.zIndex = idx;
             } else {
-              leaf.classList.remove('flipped');
               leaf.style.zIndex = leaves.length - idx;
             }
+          }, 800);
+        } else {
+          leaf.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+          leaf.classList.remove('flipping');
+          
+          if (idx < currentSpread) {
+            leaf.classList.add('flipped');
+            leaf.style.zIndex = idx;
+          } else {
+            leaf.classList.remove('flipped');
+            leaf.style.zIndex = leaves.length - idx;
           }
-        });
-      }
+        }
+      });
       
       updatePageCounter();
     }
 
     // Nav actions
     function nextPage() {
-      const isMobile = window.innerWidth < 768;
-      if (isMobile) {
-        if (currentPage < 22) {
-          currentPage++;
-          updateBook();
-        }
-      } else {
-        if (currentPage === 1) {
-          currentPage = 3;
-        } else if (currentPage < 20) {
-          currentPage += 2;
-        } else if (currentPage < 22) {
-          currentPage = 22;
-        }
-        updateBook();
+      if (currentPage === 1) {
+        currentPage = 3;
+      } else if (currentPage < 20) {
+        currentPage += 2;
+      } else if (currentPage < 22) {
+        currentPage = 22;
       }
+      updateBook();
     }
 
+    // Nav actions
     function prevPage() {
-      const isMobile = window.innerWidth < 768;
-      if (isMobile) {
-        if (currentPage > 1) {
-          currentPage--;
-          updateBook();
-        }
-      } else {
-        if (currentPage === 22) {
-          currentPage = 21;
-        } else if (currentPage > 3) {
-          currentPage -= 2;
-        } else if (currentPage > 1) {
-          currentPage = 1;
-        }
-        updateBook();
+      if (currentPage === 22) {
+        currentPage = 21;
+      } else if (currentPage > 3) {
+        currentPage -= 2;
+      } else if (currentPage > 1) {
+        currentPage = 1;
       }
+      updateBook();
     }
 
     // Listeners
@@ -2458,7 +2345,7 @@
 
     // Resize observer
     window.addEventListener('resize', () => {
-      // Force visual recalibration
+      scaleBook();
       updateBook();
     });
 
@@ -2476,7 +2363,8 @@
         });
       });
 
-      // Initial visual update
+      // Initial visual updates
+      scaleBook();
       updateBook();
     });
   </script>
