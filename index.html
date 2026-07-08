@@ -1588,7 +1588,7 @@
 
     .guide-title-wrap {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
 
     .guide-title-wrap h2 {
@@ -1611,6 +1611,17 @@
       background-color: #B8960C;
     }
 
+    /* Scaler for scaling on mobile devices */
+    .guide-book-scaler {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+      margin: 1.5rem 0;
+      transition: height 0.3s ease;
+    }
+
     /* Outer Wrapper for Hardcover */
     .book-cover-wrapper {
       background: #0A1D37; /* Dark navy hardcover */
@@ -1624,16 +1635,21 @@
       justify-content: center;
       align-items: center;
       perspective: 2000px; /* 3D Perspective */
-      margin: 2rem 0;
+      margin: 0;
+      transition: transform 0.3s ease;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
 
     /* Book Viewport Container */
     .guide-book-container {
       position: relative;
-      transition: transform 0.5s ease;
       transform-style: preserve-3d;
       width: 800px;
       height: 550px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
 
     #buyers-guide .book {
@@ -1691,7 +1707,7 @@
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       background-color: #FCFBF7; /* cream off-white page texture */
-      padding: 1.8rem;
+      padding: 1.4rem;
       overflow: hidden;
       border: 1px solid rgba(0, 0, 0, 0.06);
     }
@@ -1738,7 +1754,7 @@
     /* Core typography inside pages */
     #buyers-guide .page-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       color: #0A1D37;
       margin-bottom: 0.15rem;
       font-weight: 500;
@@ -1748,24 +1764,24 @@
     #buyers-guide .page-subtitle-guide {
       font-family: 'Playfair Display', serif;
       color: #B8960C;
-      font-size: 0.95rem;
+      font-size: 0.8rem;
       font-style: italic;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.4rem;
     }
 
     #buyers-guide .gold-divider {
       width: 50px;
       height: 2px;
       background-color: #B8960C;
-      margin: 0.5rem 0 0.7rem 0;
+      margin: 0.35rem 0 0.5rem 0;
     }
 
     #buyers-guide .p-body {
       font-family: 'Georgia', serif;
-      font-size: 0.95rem;
-      line-height: 1.5;
+      font-size: 0.82rem;
+      line-height: 1.45;
       color: #333333;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
       text-align: justify;
     }
 
@@ -1773,7 +1789,7 @@
     #buyers-guide .page-split {
       display: flex;
       height: 100%;
-      margin: -1.8rem;
+      margin: -1.4rem;
     }
 
     #buyers-guide .page-split-img {
@@ -1792,7 +1808,7 @@
 
     #buyers-guide .page-split-content {
       width: 50%;
-      padding: 1.8rem;
+      padding: 1.4rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1803,12 +1819,12 @@
     #buyers-guide .dual-photos {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 0.5rem;
       height: 100%;
     }
     
     #buyers-guide .dual-photos-img {
-      height: calc(50% - 0.3rem);
+      height: calc(50% - 0.25rem);
       background-size: cover;
       background-position: center;
       border-radius: 4px;
@@ -1831,26 +1847,26 @@
 
     #buyers-guide .full-bleed-overlay {
       position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      right: 1.5rem;
+      bottom: 1.2rem;
+      left: 1.2rem;
+      right: 1.2rem;
       background: rgba(10, 29, 55, 0.95);
       border-left: 4px solid #B8960C;
-      padding: 1.2rem;
+      padding: 1rem;
       color: #FFF;
       box-shadow: 0 8px 25px rgba(0,0,0,0.25);
     }
 
     #buyers-guide .full-bleed-overlay h4 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       color: #FCFBF7;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
 
     #buyers-guide .full-bleed-overlay p {
       font-family: 'Inter', sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
       letter-spacing: 2px;
       color: rgba(255, 255, 255, 0.7);
@@ -1862,13 +1878,13 @@
       flex-direction: column;
       justify-content: center;
       height: 100%;
-      padding: 1rem 0;
+      padding: 0.5rem 0;
     }
 
     #buyers-guide .testimonial-item {
       position: relative;
-      margin-bottom: 2.2rem;
-      padding-left: 2rem;
+      margin-bottom: 1.5rem;
+      padding-left: 1.8rem;
     }
 
     #buyers-guide .testimonial-item::before {
@@ -1876,7 +1892,7 @@
       position: absolute;
       left: -0.2rem;
       top: -1.3rem;
-      font-size: 4.5rem;
+      font-size: 4rem;
       font-family: 'Playfair Display', serif;
       color: rgba(184, 150, 12, 0.15);
       line-height: 1;
@@ -1884,16 +1900,16 @@
 
     #buyers-guide .testimonial-quote {
       font-family: 'Georgia', serif;
-      font-size: 1.15rem;
+      font-size: 0.95rem;
       font-style: italic;
       color: #0A1D37;
-      line-height: 1.45;
-      margin-bottom: 0.4rem;
+      line-height: 1.4;
+      margin-bottom: 0.3rem;
     }
 
     #buyers-guide .testimonial-author {
       font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       font-weight: bold;
       letter-spacing: 1px;
@@ -1924,19 +1940,19 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 2.2rem 1.5rem;
+      padding: 1.8rem 1.2rem;
       text-align: center;
       border: 2px solid #B8960C;
-      margin: 0.8rem;
+      margin: 0.6rem;
     }
 
     #buyers-guide .cover-brand-header {
       font-family: 'Playfair Display', serif;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       letter-spacing: 2px;
       color: #FCFBF7;
       border-bottom: 1px solid rgba(184, 150, 12, 0.3);
-      padding-bottom: 0.6rem;
+      padding-bottom: 0.5rem;
       text-transform: uppercase;
     }
 
@@ -1946,27 +1962,27 @@
 
     #buyers-guide .cover-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 1.9rem;
       font-weight: 500;
       line-height: 1.25;
       color: #FFF;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     #buyers-guide .cover-subtitle {
       font-family: 'Inter', sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 2px;
       color: #B8960C;
-      margin-top: 0.6rem;
+      margin-top: 0.5rem;
     }
 
     #buyers-guide .cover-footer {
       font-family: 'Georgia', serif;
       font-style: italic;
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       color: rgba(255, 255, 255, 0.8);
     }
 
@@ -1974,20 +1990,21 @@
     #buyers-guide .stats-container {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
-      margin-top: 0.6rem;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
     }
 
     #buyers-guide .stat-row {
       display: flex;
       flex-direction: column;
       border-left: 2px solid #B8960C;
-      padding-left: 0.8rem;
+      padding-left: 0.6rem;
+      margin-bottom: 0.3rem;
     }
 
     #buyers-guide .stat-number {
       font-family: 'Playfair Display', serif;
-      font-size: 1.65rem;
+      font-size: 1.4rem;
       color: #0A1D37;
       font-weight: bold;
       line-height: 1.1;
@@ -1995,7 +2012,7 @@
 
     #buyers-guide .stat-desc {
       font-family: 'Georgia', serif;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       color: #333333;
     }
 
@@ -2003,26 +2020,26 @@
     #buyers-guide .advantages-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.45rem;
-      margin-top: 0.6rem;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
     }
 
     #buyers-guide .advantage-card {
       border: 1px solid #E2E8F0;
       background: #FFF;
-      padding: 0.5rem;
+      padding: 0.4rem;
       border-radius: 4px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.02);
     }
 
     #buyers-guide .advantage-card h4 {
       font-family: 'Playfair Display', serif;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: #0A1D37;
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.1rem;
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: 0.2rem;
     }
 
     #buyers-guide .advantage-card h4 span {
@@ -2032,9 +2049,9 @@
 
     #buyers-guide .advantage-card p {
       font-family: 'Georgia', serif;
-      font-size: 0.72rem;
+      font-size: 0.62rem;
       color: #666666;
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     /* Timeline step styles (Page 9) */
@@ -2049,13 +2066,13 @@
       display: flex;
       justify-content: space-between;
       position: relative;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.2rem;
     }
 
     #buyers-guide .timeline-row::before {
       content: '';
       position: absolute;
-      top: 12px;
+      top: 10px;
       left: 5%;
       right: 5%;
       height: 2px;
@@ -2074,8 +2091,8 @@
     }
 
     #buyers-guide .step-number {
-      width: 26px;
-      height: 26px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       background: #0A1D37;
       color: #FFF;
@@ -2084,34 +2101,34 @@
       justify-content: center;
       font-family: 'Playfair Display', serif;
       font-weight: bold;
-      font-size: 0.8rem;
-      margin-bottom: 0.4rem;
+      font-size: 0.7rem;
+      margin-bottom: 0.3rem;
       border: 2px solid #FCFBF7;
       box-shadow: 0 0 0 2px #B8960C;
     }
 
     #buyers-guide .step-label {
       font-family: 'Georgia', serif;
-      font-size: 0.75rem;
+      font-size: 0.68rem;
       color: #0A1D37;
       font-weight: bold;
-      line-height: 1.25;
+      line-height: 1.2;
     }
 
     /* Bullet point checklist style */
     #buyers-guide .checklist-ul {
-      margin-top: 0.6rem;
-      margin-left: 0.8rem;
+      margin-top: 0.4rem;
+      margin-left: 0.6rem;
       list-style: none;
     }
 
     #buyers-guide .checklist-ul li {
       position: relative;
-      padding-left: 1.2rem;
-      margin-bottom: 0.6rem;
+      padding-left: 1rem;
+      margin-bottom: 0.4rem;
       font-family: 'Georgia', serif;
-      font-size: 0.95rem;
-      line-height: 1.4;
+      font-size: 0.8rem;
+      line-height: 1.35;
       color: #333333;
     }
 
@@ -2120,34 +2137,34 @@
       position: absolute;
       left: 0;
       color: #B8960C;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
 
     /* Page 13 (Inspection Essentials breakdown) */
     #buyers-guide .essentials-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
-      margin-top: 0.6rem;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
     }
 
     #buyers-guide .essential-block {
       border-bottom: 1px solid #E2E8F0;
-      padding-bottom: 0.3rem;
+      padding-bottom: 0.2rem;
     }
 
     #buyers-guide .essential-block h4 {
       font-family: 'Playfair Display', serif;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: #0A1D37;
       margin-bottom: 0.1rem;
     }
 
     #buyers-guide .essential-block p {
       font-family: 'Georgia', serif;
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       color: #666666;
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     /* Escrow Comparison Table (Page 17) */
@@ -2155,14 +2172,14 @@
       width: 100%;
       height: 100%;
       overflow-x: auto;
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
     }
 
     #buyers-guide .escrow-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.58rem;
-      line-height: 1.3;
+      font-size: 0.52rem;
+      line-height: 1.25;
     }
 
     #buyers-guide .escrow-table th {
@@ -2170,14 +2187,14 @@
       color: #FCFBF7;
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      padding: 0.4rem 0.35rem;
+      padding: 0.3rem 0.25rem;
       border: 1px solid #08162b;
       text-align: left;
-      font-size: 0.64rem;
+      font-size: 0.58rem;
     }
 
     #buyers-guide .escrow-table td {
-      padding: 0.35rem;
+      padding: 0.25rem;
       border: 1px solid #E2E8F0;
       vertical-align: top;
       color: #333333;
@@ -2189,14 +2206,14 @@
 
     #buyers-guide .escrow-table ul {
       margin: 0;
-      padding-left: 0.4rem;
+      padding-left: 0.3rem;
       list-style-type: none;
     }
 
     #buyers-guide .escrow-table li {
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.12rem;
       position: relative;
-      padding-left: 0.35rem;
+      padding-left: 0.3rem;
     }
 
     #buyers-guide .escrow-table li::before {
@@ -2209,8 +2226,8 @@
     /* Columns for moving checklist (Page 18) */
     #buyers-guide .moving-cols {
       display: flex;
-      gap: 0.8rem;
-      margin-top: 0.5rem;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
     }
 
     #buyers-guide .moving-col {
@@ -2218,90 +2235,90 @@
     }
 
     #buyers-guide .moving-block {
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
 
     #buyers-guide .moving-block h4 {
       font-family: 'Playfair Display', serif;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: #0A1D37;
-      margin-bottom: 0.1rem;
+      margin-bottom: 0.05rem;
       border-bottom: 1px solid rgba(184, 150, 12, 0.3);
-      padding-bottom: 0.05rem;
+      padding-bottom: 0.02rem;
     }
 
     #buyers-guide .moving-block p {
       font-family: 'Georgia', serif;
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       color: #333333;
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     /* Page 20 Layout: Preparing to Buy Form & Mortgage Checklist */
     #buyers-guide .form-checklist-container {
       display: flex;
       height: 100%;
-      margin: -1.8rem;
+      margin: -1.4rem; /* Matches new container padding */
     }
 
     #buyers-guide .form-section {
       width: 50%;
-      padding: 1.2rem 1.5rem;
+      padding: 1rem;
       border-right: 1px solid #E2E8F0;
       overflow: hidden;
     }
 
     #buyers-guide .checklist-section {
       width: 50%;
-      padding: 1.2rem 1.5rem;
+      padding: 1rem;
       overflow: hidden;
     }
 
     #buyers-guide .form-section h3, #buyers-guide .checklist-section h3 {
       font-family: 'Playfair Display', serif;
       color: #0A1D37;
-      font-size: 1.05rem;
-      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
       border-bottom: 2px solid #B8960C;
-      padding-bottom: 0.2rem;
+      padding-bottom: 0.15rem;
     }
 
     #buyers-guide .form-group {
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.35rem;
     }
 
     #buyers-guide .form-group label {
       display: block;
-      font-size: 0.62rem;
+      font-size: 0.58rem;
       font-family: 'Inter', sans-serif;
       font-weight: 600;
       color: #333333;
-      margin-bottom: 0.1rem;
+      margin-bottom: 0.05rem;
     }
 
     #buyers-guide .form-group input[type="text"], 
     #buyers-guide .form-group textarea, 
     #buyers-guide .form-group select {
       width: 100%;
-      padding: 0.28rem 0.35rem;
+      padding: 0.2rem 0.3rem;
       border: 1px solid #E2E8F0;
       border-radius: 3px;
-      font-size: 0.66rem;
+      font-size: 0.62rem;
       font-family: inherit;
     }
 
     #buyers-guide .form-inline-choices {
       display: flex;
-      gap: 0.8rem;
+      gap: 0.6rem;
       align-items: center;
-      margin-top: 0.15rem;
+      margin-top: 0.1rem;
     }
 
     #buyers-guide .form-inline-choices label {
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
-      font-size: 0.72rem;
+      gap: 0.2rem;
+      font-size: 0.65rem;
       cursor: pointer;
       margin: 0;
     }
@@ -2310,40 +2327,40 @@
       font-family: 'Inter', sans-serif;
       font-weight: bold;
       color: #B8960C;
-      font-size: 0.66rem;
-      margin: 0.45rem 0 0.2rem 0;
+      font-size: 0.6rem;
+      margin: 0.35rem 0 0.15rem 0;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
     #buyers-guide .checklist-item {
       display: flex;
-      gap: 0.35rem;
-      margin-bottom: 0.25rem;
-      font-size: 0.66rem;
-      line-height: 1.3;
+      gap: 0.25rem;
+      margin-bottom: 0.2rem;
+      font-size: 0.6rem;
+      line-height: 1.25;
       color: #333333;
     }
 
     #buyers-guide .checklist-item input[type="checkbox"] {
-      margin-top: 0.12rem;
+      margin-top: 0.08rem;
       accent-color: #B8960C;
       cursor: pointer;
     }
 
     /* Page 22 final values checklist */
     #buyers-guide .thankyou-list {
-      margin-top: 0.5rem;
+      margin-top: 0.35rem;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.35rem;
+      gap: 0.25rem;
     }
 
     #buyers-guide .thankyou-list li {
       font-family: 'Georgia', serif;
-      font-size: 0.74rem;
-      line-height: 1.25;
-      padding-left: 0.7rem;
+      font-size: 0.66rem;
+      line-height: 1.2;
+      padding-left: 0.6rem;
       position: relative;
       color: #333333;
     }
@@ -2358,11 +2375,11 @@
     /* Back Cover Disclaimer */
     #buyers-guide .back-cover-disclaimer {
       font-family: 'Inter', sans-serif;
-      font-size: 0.56rem;
+      font-size: 0.52rem;
       letter-spacing: 0.5px;
       color: rgba(255, 255, 255, 0.55);
       text-transform: uppercase;
-      margin-top: 1rem;
+      margin-top: 0.8rem;
     }
 
     /* Viewer controls panel */
@@ -2419,6 +2436,7 @@
       gap: 2rem;
       width: 100%;
       justify-content: center;
+      position: relative;
     }
 
     /* Class rules for custom visibility display toggles for bilingual text blocks */
@@ -2442,105 +2460,8 @@
       .guide-outer-layout > .guide-nav-btn {
         display: none;
       }
-      /* Book Container dimensions on mobile */
-      .guide-book-container {
-        width: 340px;
-        height: 480px;
-      }
-      .book-cover-wrapper {
-        padding: 8px;
-        border-radius: 8px;
-        margin: 1rem 0;
-      }
-      #buyers-guide .spine-overlay {
-        display: none; /* Hide spine on single page */
-      }
-      #buyers-guide .leaf {
-        width: 100%;
-        left: 0;
-        transform-origin: center center; /* in-place page flip origin */
-      }
-      #buyers-guide .page-side {
-        padding: 1.2rem;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      }
-      #buyers-guide .page-side.front {
-        border-radius: 6px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      }
-      #buyers-guide .page-side.back {
-        border-radius: 6px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      }
-      #buyers-guide .page-split {
-        flex-direction: column;
-        margin: -1.2rem;
-        height: auto;
-      }
-      #buyers-guide .page-split-img {
-        width: 100%;
-        height: 150px;
-      }
-      #buyers-guide .page-split-content {
-        width: 100%;
-        padding: 1.2rem;
-      }
-      #buyers-guide .cover-overlay {
-        padding: 1.5rem 1rem;
-        margin: 0.4rem;
-      }
-      #buyers-guide .cover-title {
-        font-size: 1.6rem;
-      }
-      #buyers-guide .page-title {
-        font-size: 1.3rem;
-      }
-      #buyers-guide .p-body {
-        font-size: 0.82rem;
-        line-height: 1.4;
-      }
-      #buyers-guide .advantages-grid, 
-      #buyers-guide .essentials-container, 
-      #buyers-guide .moving-cols, 
-      #buyers-guide .form-checklist-container, 
-      #buyers-guide .thankyou-list {
-        grid-template-columns: 1fr !important;
-        flex-direction: column !important;
-        gap: 0.8rem;
-      }
-      #buyers-guide .form-section, 
-      #buyers-guide .checklist-section {
-        width: 100% !important;
-        border-right: none !important;
-        padding: 1rem !important;
-      }
-      #buyers-guide .moving-col {
-        width: 100% !important;
-      }
-      #buyers-guide .timeline-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
-        margin-bottom: 1.2rem;
-      }
-      #buyers-guide .timeline-row::before {
-        display: none;
-      }
-      #buyers-guide .timeline-step {
-        width: 100% !important;
-        flex-direction: row;
-        text-align: left;
-        gap: 0.6rem;
-      }
-      #buyers-guide .step-number {
-        margin-bottom: 0;
-      }
-      #buyers-guide .escrow-table th, 
-      #buyers-guide .escrow-table td {
-        font-size: 0.58rem;
-        padding: 0.25rem;
-      }
     }
+
 
   </style>
 </head>
@@ -2658,8 +2579,10 @@
         <!-- Floating Left Navigation Arrow Button (Desktop only, hidden on mobile) -->
         <button class="guide-nav-btn" id="guide-prev-btn-float" aria-label="Previous Page">←</button>
 
-        <!-- Hardcover Book Wrapper -->
-        <div class="book-cover-wrapper">
+        <!-- Scaler wrapper for scaling on mobile -->
+        <div class="guide-book-scaler">
+          <!-- Hardcover Book Wrapper -->
+          <div class="book-cover-wrapper">
           <div class="guide-book-container" id="guide-book-viewport">
             <div class="book" id="guide-book-element">
               <!-- Center Spine Shadow (Desktop only) -->
@@ -3757,8 +3680,9 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Floating Right Navigation Arrow Button (Desktop only, hidden on mobile) -->
+      <!-- Floating Right Navigation Arrow Button (Desktop only, hidden on mobile) -->
         <button class="guide-nav-btn" id="guide-next-btn-float" aria-label="Next Page">→</button>
       </div>
 
@@ -4374,6 +4298,26 @@
     let guideTouchStartX = 0;
     let guideTouchEndX = 0;
 
+    function scaleBook() {
+      const scaler = document.querySelector('.guide-book-scaler');
+      const cover = document.querySelector('.book-cover-wrapper');
+      if (!scaler || !cover) return;
+
+      const availableWidth = scaler.clientWidth;
+      const designWidth = 830;
+      const designHeight = 580;
+
+      if (availableWidth < designWidth) {
+        const scale = availableWidth / designWidth;
+        cover.style.transform = `scale(${scale})`;
+        cover.style.transformOrigin = 'center center';
+        scaler.style.height = `${designHeight * scale}px`;
+      } else {
+        cover.style.transform = 'none';
+        scaler.style.height = 'auto';
+      }
+    }
+
     function updateGuidePageCounter() {
       const counterEl = document.getElementById('guide-page-counter');
       if (!counterEl) return;
@@ -4384,25 +4328,15 @@
       const prevBtnFloat = document.getElementById('guide-prev-btn-float');
       const nextBtnFloat = document.getElementById('guide-next-btn-float');
 
-      const isMobile = window.innerWidth < 768;
-
-      if (isMobile) {
-        if (guideCurrentPage === 1) {
-          counterEl.textContent = isEs ? "Portada (Pág. 1 de 22)" : "Cover (Page 1 of 22)";
-        } else {
-          counterEl.textContent = isEs ? `Página ${guideCurrentPage} de 22` : `Page ${guideCurrentPage} of 22`;
-        }
+      if (guideCurrentPage === 1) {
+        counterEl.textContent = isEs ? "Portada (Pág. 1 de 22)" : "Cover (Page 1 of 22)";
+      } else if (guideCurrentPage === 22) {
+        counterEl.textContent = isEs ? "Página 22 de 22" : "Page 22 of 22";
       } else {
-        if (guideCurrentPage === 1) {
-          counterEl.textContent = isEs ? "Portada (Pág. 1 de 22)" : "Cover (Page 1 of 22)";
-        } else if (guideCurrentPage === 22) {
-          counterEl.textContent = isEs ? "Página 22 de 22" : "Page 22 of 22";
-        } else {
-          const spread = Math.floor(guideCurrentPage / 2);
-          const pLeft = spread * 2;
-          const pRight = pLeft + 1;
-          counterEl.textContent = isEs ? `Páginas ${pLeft}-${pRight} de 22` : `Pages ${pLeft}-${pRight} of 22`;
-        }
+        const spread = Math.floor(guideCurrentPage / 2);
+        const pLeft = spread * 2;
+        const pRight = pLeft + 1;
+        counterEl.textContent = isEs ? `Páginas ${pLeft}-${pRight} de 22` : `Pages ${pLeft}-${pRight} of 22`;
       }
 
       if (prevBtn) prevBtn.disabled = (guideCurrentPage === 1);
@@ -4413,7 +4347,6 @@
 
     function updateGuideBook() {
       const leaves = document.querySelectorAll('#buyers-guide .leaf');
-      const isMobile = window.innerWidth < 768;
       
       let flippingLeafIdx = -1;
       const oldSpread = Math.floor(guideLastPage / 2);
@@ -4424,109 +4357,67 @@
       
       guideLastPage = guideCurrentPage;
 
-      if (isMobile) {
-        const activeLeafIdx = Math.floor((guideCurrentPage - 1) / 2);
-        const isBack = (guideCurrentPage % 2 === 0);
+      const currentSpread = Math.floor(guideCurrentPage / 2);
 
-        leaves.forEach((leaf, idx) => {
+      leaves.forEach((leaf, idx) => {
+        leaf.style.display = 'block';
+        
+        if (idx === flippingLeafIdx) {
+          leaf.classList.add('flipping');
+          leaf.style.zIndex = '100';
           leaf.style.transition = 'transform 0.6s ease-in-out';
-          if (idx === activeLeafIdx) {
-            leaf.style.display = 'block';
-            leaf.style.zIndex = '10';
-            if (isBack) {
-              leaf.classList.add('flipped');
-            } else {
-              leaf.classList.remove('flipped');
-            }
-          } else {
-            leaf.style.display = 'none';
-            leaf.style.zIndex = '1';
-            if (idx < activeLeafIdx) {
-              leaf.classList.add('flipped');
-            } else {
-              leaf.classList.remove('flipped');
-            }
-          }
-        });
-      } else {
-        const currentSpread = Math.floor(guideCurrentPage / 2);
-
-        leaves.forEach((leaf, idx) => {
-          leaf.style.display = 'block';
           
-          if (idx === flippingLeafIdx) {
-            leaf.classList.add('flipping');
-            leaf.style.zIndex = '100';
-            leaf.style.transition = 'transform 0.6s ease-in-out';
-            
-            if (idx < currentSpread) {
-              leaf.classList.add('flipped');
-            } else {
-              leaf.classList.remove('flipped');
-            }
-            
-            setTimeout(() => {
-              leaf.classList.remove('flipping');
-              if (idx < currentSpread) {
-                leaf.style.zIndex = idx;
-              } else {
-                leaf.style.zIndex = leaves.length - idx;
-              }
-            }, 600);
+          if (idx < currentSpread) {
+            leaf.classList.add('flipped');
           } else {
-            leaf.style.transition = 'transform 0.6s ease-in-out';
+            leaf.classList.remove('flipped');
+          }
+          
+          setTimeout(() => {
             leaf.classList.remove('flipping');
-            
             if (idx < currentSpread) {
-              leaf.classList.add('flipped');
               leaf.style.zIndex = idx;
             } else {
-              leaf.classList.remove('flipped');
               leaf.style.zIndex = leaves.length - idx;
             }
+          }, 600);
+        } else {
+          leaf.style.transition = 'transform 0.6s ease-in-out';
+          leaf.classList.remove('flipping');
+          
+          if (idx < currentSpread) {
+            leaf.classList.add('flipped');
+            leaf.style.zIndex = idx;
+          } else {
+            leaf.classList.remove('flipped');
+            leaf.style.zIndex = leaves.length - idx;
           }
-        });
-      }
+        }
+      });
 
       updateGuidePageCounter();
     }
 
     function guideNextPage() {
-      const isMobile = window.innerWidth < 768;
-      if (isMobile) {
-        if (guideCurrentPage < 22) {
-          guideCurrentPage++;
-          updateGuideBook();
-        }
-      } else {
-        if (guideCurrentPage === 1) {
-          guideCurrentPage = 3;
-        } else if (guideCurrentPage < 20) {
-          guideCurrentPage += 2;
-        } else if (guideCurrentPage < 22) {
-          guideCurrentPage = 22;
-        }
-        updateGuideBook();
+      if (guideCurrentPage === 1) {
+        guideCurrentPage = 3;
+      } else if (guideCurrentPage < 20) {
+        guideCurrentPage += 2;
+      } else if (guideCurrentPage < 22) {
+        guideCurrentPage = 22;
       }
+      updateGuideBook();
     }
 
     function guidePrevPage() {
-      const isMobile = window.innerWidth < 768;
-      if (isMobile) {
-        if (guideCurrentPage > 1) {
-          guideCurrentPage--;
-          updateGuideBook();
-        }
-      } else {
-        if (guideCurrentPage === 22) {
-          guideCurrentPage = 21;
-        } else if (guideCurrentPage > 3) {
-          guideCurrentPage -= 2;
-        } else if (guideCurrentPage > 1) {
-          guideCurrentPage = 1;
-        }
-        updateGuideBook();
+      if (guideCurrentPage === 22) {
+        guideCurrentPage = 21;
+      } else if (guideCurrentPage > 3) {
+        guideCurrentPage -= 2;
+      } else if (guideCurrentPage > 1) {
+        guideCurrentPage = 1;
       }
+      updateGuideBook();
     }
 
     function handleGuideSwipe() {
@@ -4574,8 +4465,10 @@
           handleGuideSwipe();
         }, { passive: true });
       }
-    }
 
+      window.addEventListener('resize', scaleBook);
+      scaleBook(); // Initial call
+    }
 
     // 5. LANGUAGE TRANSLATION SWITCHER
     function setLanguage(lang) {
