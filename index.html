@@ -1716,42 +1716,49 @@
 
   <!-- BUYERS GUIDE SECTION -->
   <section id="buyers-guide" class="reveal-section">
-    <div class="container" style="max-width: 1000px; width: 100%; padding: 0 20px; display: flex; flex-direction: column; align-items: center;">
-      <!-- Title -->
-      <div style="text-align: center; margin-bottom: 2rem; color: #FFFFFF;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #FFFFFF; margin-bottom: 0.5rem; display: inline-block; position: relative;">
-          <span class="lang-en">Buyers Guide</span>
-          <span class="lang-es">Guía del Comprador</span>
-        </h2>
-        <div style="font-family: 'Georgia', serif; font-size: 0.8rem; color: #B8960C; letter-spacing: 2px; font-weight: bold; text-transform: uppercase; margin-top: 0.5rem;">
-          <span class="lang-en">YOUR VISION | YOUR LIFESTYLE | YOUR HOME</span>
-          <span class="lang-es">TU VISIÓN | TU ESTILO DE VIDA | TU HOGAR</span>
+    <div class="container" style="max-width: 1000px; width: 100%; padding: 0 20px;">
+      
+      <!-- Elegant Gold-Bordered Recuadro (CTA Box) containing the interactive book -->
+      <div class="buyers-guide-cta-card" style="background-color: #0A1D37; border: 2px solid #B8960C; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; padding: 2.5rem; gap: 1.5rem; width: 100%; box-sizing: border-box;">
+        
+        <!-- Header Info inside the Recuadro -->
+        <div style="text-align: center; color: #FFFFFF; width: 100%;">
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #FFFFFF; margin: 0 0 0.25rem 0; line-height: 1.2;">
+            <span class="lang-en">Buyers Guide</span>
+            <span class="lang-es">Guía del Comprador</span>
+          </h2>
+          <div style="font-family: 'Georgia', serif; font-size: 0.75rem; color: #B8960C; letter-spacing: 2px; font-weight: bold; text-transform: uppercase; margin-bottom: 0.6rem;">
+            <span class="lang-en">YOUR VISION | YOUR LIFESTYLE | YOUR HOME</span>
+            <span class="lang-es">TU VISIÓN | TU ESTILO DE VIDA | TU HOGAR</span>
+          </div>
+          <div style="width: 60px; height: 2px; background-color: #B8960C; margin: 0 auto 0.5rem auto;"></div>
+        </div>
+
+        <!-- Interactive Flipsnack Player Iframe (Cropped only to book and arrows) -->
+        <div style="width: 100%; background: #0A1D37; border-radius: 8px; overflow: hidden; box-sizing: border-box;">
+          <iframe 
+            src="https://player.flipsnack.com/?hash=ODhGRUNGNUJEQzkrN25mNjUzY3Z4bg%3D%3D" 
+            width="100%" 
+            class="flipsnack-iframe"
+            seamless="seamless" 
+            scrolling="no" 
+            frameborder="0" 
+            allowtransparency="true" 
+            allowfullscreen="true" 
+            allow="clipboard-read; clipboard-write; autoplay;" 
+            style="border-radius: 6px; display: block; border: none; background-color: #0A1D37; width: 100%;">
+          </iframe>
+        </div>
+
+        <!-- Footer link for full screen option -->
+        <div style="text-align: center; margin-top: 0.5rem;">
+          <a href="https://www.flipsnack.com/88FECF5BDC9/2026-buyers-guide-7nf653cvxn" target="_blank" style="display: inline-block; background-color: #B8960C; color: #FFFFFF; text-decoration: none; font-family: 'Playfair Display', serif; font-size: 0.85rem; font-weight: bold; padding: 0.6rem 1.6rem; border-radius: 4px; border: 1px solid #B8960C; box-shadow: 0 4px 10px rgba(184, 150, 12, 0.2); transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;" onmouseover="this.style.backgroundColor='#9B7D07'; this.style.borderColor='#9B7D07'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='#B8960C'; this.style.borderColor='#B8960C'; this.style.transform='translateY(0)';" onclick="window.open(this.href,'_blank'); return false;">
+            <span class="lang-en">Open in Full Screen ↗</span>
+            <span class="lang-es">Abrir en Pantalla Completa ↗</span>
+          </a>
         </div>
       </div>
       
-      <!-- Embedded Interactive Flipsnack Player Container -->
-      <div style="width: 100%; background: #0A1D37; padding: 8px; border-radius: 12px; border: 2px solid #B8960C; box-shadow: 0 20px 50px rgba(0,0,0,0.3); overflow: hidden; margin-bottom: 1.5rem; box-sizing: border-box;">
-        <iframe 
-          src="https://player.flipsnack.com/?hash=ODhGRUNGNUJEQzkrN25mNjUzY3Z4bg%3D%3D" 
-          width="100%" 
-          class="flipsnack-iframe"
-          seamless="seamless" 
-          scrolling="no" 
-          frameborder="0" 
-          allowtransparency="true" 
-          allowfullscreen="true" 
-          allow="clipboard-read; clipboard-write; autoplay;" 
-          style="border-radius: 8px; display: block; border: none; background-color: #0A1D37; width: 100%;">
-        </iframe>
-      </div>
-      
-      <!-- Option to open in new tab (Full Screen) -->
-      <div style="text-align: center;">
-        <a href="https://www.flipsnack.com/88FECF5BDC9/2026-buyers-guide-7nf653cvxn" target="_blank" style="display: inline-block; background-color: #B8960C; color: #FFFFFF; text-decoration: none; font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: bold; padding: 0.7rem 1.8rem; border-radius: 4px; border: 1px solid #B8960C; box-shadow: 0 4px 12px rgba(184, 150, 12, 0.2); transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;" onmouseover="this.style.backgroundColor='#9B7D07'; this.style.borderColor='#9B7D07'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='#B8960C'; this.style.borderColor='#B8960C'; this.style.transform='translateY(0)';" onclick="window.open(this.href,'_blank'); return false;">
-          <span class="lang-en">Open in Full Screen ↗</span>
-          <span class="lang-es">Abrir en Pantalla Completa ↗</span>
-        </a>
-      </div>
     </div>
   </section>
 
