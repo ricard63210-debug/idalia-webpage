@@ -8,6 +8,7 @@
   <meta name="keywords" content="realtor Sacramento CA, homes for sale Sacramento, buy house Sacramento, Idalia Lombera realtor, Nick Sadek Sotheby's Sacramento, Roseville homes, Rocklin real estate">
   <meta name="author" content="Idalia Lombera">
   <link rel="canonical" href="https://www.idaliahomes.com">
+  <link rel="icon" type="image/png" href="logo.png">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Idalia Lombera | Realtor Sacramento CA">
@@ -714,11 +715,13 @@
     }
 
     .service-icon {
-      font-size: 1.8rem;
+      display: flex;
+      color: var(--navy);
       transition: all var(--transition-normal);
     }
 
     .service-card:hover .service-icon {
+      color: var(--white);
       transform: scale(1.1);
     }
 
@@ -777,12 +780,6 @@
       box-shadow: 0 8px 20px rgba(27, 58, 92, 0.15);
     }
 
-    /* Pin icon decoration */
-    .area-chip::before {
-      content: '📍';
-      font-size: 0.95rem;
-    }
-
     /* ----------------------------------------------------
        PROPERTY TYPES & PRICE HIGHLIGHT
        ---------------------------------------------------- */
@@ -821,10 +818,6 @@
       border-color: var(--orange);
       transform: translateY(-3px);
       box-shadow: var(--shadow-md);
-    }
-
-    .property-pill-icon {
-      font-size: 1.25rem;
     }
 
     /* Callout banner for price range */
@@ -1873,7 +1866,7 @@
         <!-- Card 1 -->
         <div class="service-card">
           <div class="service-icon-box">
-            <span class="service-icon">🏡</span>
+            <span class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg></span>
           </div>
           <h3 data-en="Home Buying" data-es="Compra de Vivienda">Home Buying</h3>
           <p data-en="Guiding you through the local market dynamics to find the perfect property, navigate negotiations, and secure your new keys smoothly." data-es="Guiándote a través de la dinámica del mercado local para encontrar la propiedad perfecta, negociar condiciones y asegurar tus nuevas llaves sin problemas.">Guiding you through the local market dynamics to find the perfect property, navigate negotiations, and secure your new keys smoothly.</p>
@@ -1882,7 +1875,7 @@
         <!-- Card 2 -->
         <div class="service-card">
           <div class="service-icon-box">
-            <span class="service-icon">💰</span>
+            <span class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span>
           </div>
           <h3 data-en="Home Selling" data-es="Venta de Vivienda">Home Selling</h3>
           <p data-en="Maximum exposure, expert listing design, and strategic staging recommendations designed to fetch top dollar for your home." data-es="Máxima exposición, diseño de listados experto y recomendaciones de puesta en escena estratégicas para obtener el máximo valor por tu hogar.">Maximum exposure, expert listing design, and strategic staging recommendations designed to fetch top dollar for your home.</p>
@@ -1891,7 +1884,7 @@
         <!-- Card 3 -->
         <div class="service-card">
           <div class="service-icon-box">
-            <span class="service-icon">📊</span>
+            <span class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></span>
           </div>
           <h3 data-en="Market Analysis" data-es="Análisis de Mercado">Market Analysis</h3>
           <p data-en="Comprehensive evaluations of local home values, comparable sales data, and economic insights to guide your next move." data-es="Evaluaciones integrales del valor de las viviendas locales, datos de ventas comparables e información económica para guiar tu próximo paso.">Comprehensive evaluations of local home values, comparable sales data, and economic insights to guide your next move.</p>
@@ -1900,7 +1893,7 @@
         <!-- Card 4 -->
         <div class="service-card">
           <div class="service-icon-box">
-            <span class="service-icon">🏘️</span>
+            <span class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>
           </div>
           <h3 data-en="Luxury Properties" data-es="Propiedades de Lujo">Luxury Properties</h3>
           <p data-en="Discreet, white-glove service tailored specifically for high-end properties, elite marketing campaigns, and qualified buyers." data-es="Servicio discreto de guante blanco adaptado específicamente para propiedades de alta gama, campañas de marketing de élite y compradores calificados.">Discreet, white-glove service tailored specifically for high-end properties, elite marketing campaigns, and qualified buyers.</p>
@@ -1909,7 +1902,7 @@
         <!-- Card 5 -->
         <div class="service-card">
           <div class="service-icon-box">
-            <span class="service-icon">🌍</span>
+            <span class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span>
           </div>
           <h3 data-en="Sotheby's Global Network" data-es="Red Global de Sotheby's">Sotheby's Global Network</h3>
           <p data-en="Harnessing a worldwide referral network and international syndication platforms to market listings across 80+ countries." data-es="Aprovechando una red mundial de referencias y plataformas de distribución internacional para comercializar listados en más de 80 países.">Harnessing a worldwide referral network and international syndication platforms to market listings across 80+ countries.</p>
@@ -1918,7 +1911,7 @@
         <!-- Card 6 -->
         <div class="service-card">
           <div class="service-icon-box">
-            <span class="service-icon">📱</span>
+            <span class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></span>
           </div>
           <h3 data-en="Digital Marketing" data-es="Marketing Digital">Digital Marketing</h3>
           <p data-en="Advanced demographic-targeted social media, high-end property videos, and virtual 3D home tours for maximum exposure." data-es="Redes sociales avanzadas dirigidas a segmentos demográficos, videos de propiedades de alto nivel y recorridos virtuales en 3D para una exposición máxima.">Advanced demographic-targeted social media, high-end property videos, and virtual 3D home tours for maximum exposure.</p>
@@ -1984,22 +1977,22 @@
       <div class="property-grid">
         <div class="pills-grid">
           <span class="property-pill">
-            <span class="property-pill-icon">🏡</span> <span data-en="Houses" data-es="Casas">Houses</span>
+            <span data-en="Houses" data-es="Casas">Houses</span>
           </span>
           <span class="property-pill">
-            <span class="property-pill-icon">🏢</span> <span data-en="Townhouses" data-es="Casas Adosadas">Townhouses</span>
+            <span data-en="Townhouses" data-es="Casas Adosadas">Townhouses</span>
           </span>
           <span class="property-pill">
-            <span class="property-pill-icon">🏙️</span> <span data-en="Condos" data-es="Condominios">Condos</span>
+            <span data-en="Condos" data-es="Condominios">Condos</span>
           </span>
           <span class="property-pill">
-            <span class="property-pill-icon">👥</span> <span data-en="Multi-Family" data-es="Multifamiliares">Multi-Family</span>
+            <span data-en="Multi-Family" data-es="Multifamiliares">Multi-Family</span>
           </span>
           <span class="property-pill">
-            <span class="property-pill-icon">🌳</span> <span data-en="Land" data-es="Terrenos">Land</span>
+            <span data-en="Land" data-es="Terrenos">Land</span>
           </span>
           <span class="property-pill">
-            <span class="property-pill-icon">🚛</span> <span data-en="Manufactured Homes" data-es="Casas Prefabricadas">Manufactured Homes</span>
+            <span data-en="Manufactured Homes" data-es="Casas Prefabricadas">Manufactured Homes</span>
           </span>
         </div>
 
@@ -2132,7 +2125,7 @@
           
           <div class="info-list-item">
             <div class="info-icon-wrapper">
-              <span class="info-icon">📞</span>
+              <span class="info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
             </div>
             <div class="info-content">
               <h4 data-en="Phone Number" data-es="Número de Teléfono">Phone Number</h4>
@@ -2157,7 +2150,7 @@
 
           <div class="info-list-item">
             <div class="info-icon-wrapper">
-              <span class="info-icon">🏛️</span>
+              <span class="info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>
             </div>
             <div class="info-content">
               <h4 data-en="Brokerage" data-es="Correduría">Brokerage</h4>
