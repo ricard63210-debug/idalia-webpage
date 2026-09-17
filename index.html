@@ -2848,6 +2848,11 @@
       trigger.addEventListener('click', toggleChat);
       closeBtn.addEventListener('click', toggleChat);
 
+      // Re-evaluate send button state as the user types
+      input.addEventListener('input', () => {
+        sendBtn.disabled = isLoading || !input.value.trim();
+      });
+
       function scrollToBottom() {
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
       }
@@ -2913,7 +2918,8 @@
         isLoading = val;
         input.disabled = val;
         sendBtn.disabled = val || !input.value.trim();
-        
+        if (!val && isChatOpen) input.focus();
+
         const typingIndicator = document.getElementById('liz-typing-indicator');
         if (val) {
           const indicator = document.createElement('div');
